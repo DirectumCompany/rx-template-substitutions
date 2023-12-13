@@ -1,0 +1,325 @@
+{
+  "$type": "Sungero.Metadata.ModuleMetadata, Sungero.Metadata",
+  "NameGuid": "e282aaca-e636-4ba9-b955-b573e3cca133",
+  "Name": "SubstitutionsManagment",
+  "AsyncHandlers": [
+    {
+      "NameGuid": "ae3d3145-cac3-4045-97d6-8abb48530c13",
+      "Name": "SubstitutionAsyncHandler",
+      "DelayPeriod": 10,
+      "DelayStrategy": "RegularDelayStrategy",
+      "IsHandlerGenerated": true,
+      "MaxRetryCount": 30,
+      "Parameters": [
+        {
+          "NameGuid": "1575799c-5143-4d1d-a36b-3944c164558c",
+          "Name": "SubstituteId",
+          "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "261ea9c5-6b00-420e-98c1-ad854c932d42",
+          "Name": "StartDate",
+          "ParameterType": "DateTime"
+        },
+        {
+          "NameGuid": "5eaaddfa-1294-4dec-9528-55404d51b6b7",
+          "Name": "Comment",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "65acd375-3630-42a9-b344-9f42c77b3c25",
+          "Name": "SubstitutedUserId",
+          "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "725cdc23-3e1d-427a-a025-d965f7658694",
+          "Name": "EndDate",
+          "ParameterType": "DateTime"
+        },
+        {
+          "NameGuid": "a2a3acb1-2570-4d65-ae39-9d097f706c0b",
+          "Name": "SubstitutionId",
+          "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "b56c3a64-a7fb-4bf2-9f18-5059d635cab1",
+          "Name": "IsUpdate",
+          "ParameterType": "Boolean"
+        }
+      ]
+    }
+  ],
+  "ClientAssemblyName": "DirRX.SubstitutionsManagment.Client",
+  "ClientBaseAssemblyName": "DirRX.SubstitutionsManagment.ClientBase",
+  "ClientBaseNamespace": "DirRX.SubstitutionsManagment.ClientBase",
+  "ClientNamespace": "DirRX.SubstitutionsManagment.Client",
+  "Code": "Substi1",
+  "CompanyCode": "DirRX",
+  "Cover": {
+    "NameGuid": "6f44d1b3-f094-4d5b-9db5-6eeb94aff2da",
+    "Actions": [
+      {
+        "$type": "Sungero.Metadata.CoverFunctionActionMetadata, Sungero.Metadata",
+        "NameGuid": "05f9f328-face-472b-be63-7d24e2f9d2f7",
+        "Name": "UpdateSubstitution",
+        "FunctionName": "UpdateSubstitution",
+        "GroupId": "12e09f51-e387-4d17-a038-0d0db4e38ff9",
+        "PreviousItemGuid": "1347a935-94cf-41ad-a064-b8f30e057184"
+      },
+      {
+        "$type": "Sungero.Metadata.CoverFunctionActionMetadata, Sungero.Metadata",
+        "NameGuid": "1347a935-94cf-41ad-a064-b8f30e057184",
+        "Name": "CreateSubstitution",
+        "FunctionName": "CreateSubstitution",
+        "GroupId": "12e09f51-e387-4d17-a038-0d0db4e38ff9"
+      }
+    ],
+    "Background": null,
+    "Footer": {
+      "NameGuid": "18eda24b-f69a-467d-814c-8a66b704eb9d",
+      "BackgroundPosition": "Stretch"
+    },
+    "Groups": [
+      {
+        "NameGuid": "12e09f51-e387-4d17-a038-0d0db4e38ff9",
+        "Name": "Substitutions",
+        "BackgroundPosition": "Stretch",
+        "IconName": "GroupIconSubstitutions_12e09f51e3874d17a0380d0db4e38ff9.png",
+        "TabId": "3dff3cf7-b64b-40be-a3ff-8436a53da490"
+      }
+    ],
+    "Header": {
+      "NameGuid": "5f8d37db-5a45-40f1-8539-d4409e7130ad",
+      "BackgroundPosition": "Stretch"
+    },
+    "Tabs": [
+      {
+        "NameGuid": "3dff3cf7-b64b-40be-a3ff-8436a53da490",
+        "Name": "Tab"
+      }
+    ]
+  },
+  "Dependencies": [
+    {
+      "Id": "1a021951-d3f7-40d9-bdb2-e2d853081b3e",
+      "IsSolutionModule": true,
+      "MaxVersion": "",
+      "MinVersion": ""
+    },
+    {
+      "Id": "92491aa6-c4df-4f46-a807-ebdd337bda74",
+      "MaxVersion": "",
+      "MinVersion": "1.1.0.0"
+    }
+  ],
+  "HandledEvents": [
+    "VisibilityServer",
+    "InitializingServer"
+  ],
+  "IconResourcesKeys": [],
+  "Importance": "Low",
+  "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "InterfaceNamespace": "DirRX.SubstitutionsManagment",
+  "IsolatedAssemblyName": "DirRX.SubstitutionsManagment.Isolated",
+  "IsolatedNamespace": "DirRX.SubstitutionsManagment.Isolated",
+  "Overridden": [
+    "Importance"
+  ],
+  "PublicConstants": [
+    {
+      "Name": "DepartmentSubstitutionManager",
+      "ParentClasses": [
+        "Module",
+        "RoleGuid"
+      ],
+      "TypeName": "System.Guid",
+      "Value": "new System.Guid(\"5D81B15B-CDEC-423F-BC3C-7A1EF4415340\")"
+    },
+    {
+      "Name": "SubstitutionManager",
+      "ParentClasses": [
+        "Module",
+        "RoleGuid"
+      ],
+      "TypeName": "System.Guid",
+      "Value": "new System.Guid(\"1DAC6D4F-9502-44A7-8872-1E8F4449B007\")"
+    }
+  ],
+  "PublicFunctions": [
+    {
+      "Name": "CreateOrUpdateSubstitution",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "substitutionStruct",
+          "ParameterType": "global::DirRX.SubstitutionsManagment.Structures.Module.ISubstitutionDialogStructure",
+          "ParameterTypeFullName": "DirRX.SubstitutionsManagment.Structures.Module.ISubstitutionDialogStructure"
+        },
+        {
+          "Name": "isUpdate",
+          "ParameterType": "global::System.Boolean",
+          "ParameterTypeFullName": "System.Boolean"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
+      "Name": "FillSubstitutionNotificationSubject",
+      "Parameters": [
+        {
+          "Name": "substitution",
+          "ParameterType": "global::Sungero.CoreEntities.ISubstitution",
+          "ParameterTypeFullName": "Sungero.CoreEntities.ISubstitution, Sungero.Domain.Shared"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "Name": "GetEmployeeSubstitutions",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "employee",
+          "ParameterType": "global::Sungero.Company.IEmployee",
+          "ParameterTypeFullName": "Sungero.Company.IEmployee, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "isDepartmentManager",
+          "ParameterType": "global::System.Boolean",
+          "ParameterTypeFullName": "System.Boolean"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.Linq.IQueryable<global::Sungero.CoreEntities.ISubstitution>",
+      "ReturnTypeFullName": "System.Linq.IQueryable"
+    },
+    {
+      "Name": "IsDepartmentSubstitutionManager",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "user",
+          "ParameterType": "global::Sungero.CoreEntities.IUser",
+          "ParameterTypeFullName": "Sungero.CoreEntities.IUser, Sungero.Domain.Shared"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "IsSubstitutionManager",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "user",
+          "ParameterType": "global::Sungero.CoreEntities.IUser",
+          "ParameterTypeFullName": "Sungero.CoreEntities.IUser, Sungero.Domain.Shared"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "SendSubstitutionNotification",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "substitution",
+          "ParameterType": "global::Sungero.CoreEntities.ISubstitution",
+          "ParameterTypeFullName": "Sungero.CoreEntities.ISubstitution, Sungero.Domain.Shared"
+        },
+        {
+          "Name": "logPrefix",
+          "ParameterType": "global::System.String",
+          "ParameterTypeFullName": "System.String"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    }
+  ],
+  "PublicStructures": [
+    {
+      "Name": "SubstitutionDialogStructure",
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Substitution",
+          "IsEntity": true,
+          "IsNullable": true,
+          "TypeFullName": "global::Sungero.CoreEntities.ISubstitution"
+        },
+        {
+          "Name": "SubstitutedUser",
+          "IsEntity": true,
+          "IsNullable": true,
+          "TypeFullName": "global::Sungero.CoreEntities.IUser"
+        },
+        {
+          "Name": "Substitute",
+          "IsEntity": true,
+          "IsNullable": true,
+          "TypeFullName": "global::Sungero.CoreEntities.IUser"
+        },
+        {
+          "Name": "StartDate",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.DateTime>"
+        },
+        {
+          "Name": "EndDate",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.DateTime>"
+        },
+        {
+          "Name": "Comment",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "DirRX.SubstitutionsManagment.Structures.Module"
+    }
+  ],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "DirRX.SubstitutionsManagment",
+  "ResourcesKeys": [
+    "SubstitutionManagerRoleName",
+    "SubstitutionManagerRoleDescription",
+    "DepartmentSubstitutionManagerRoleName",
+    "DepartmentSubstitutionManagerRoleDescription",
+    "SubstitutedFieldName",
+    "UpdateSubstitutionDialogName",
+    "CreateSubstitutionDialogName",
+    "NoRightsErrorMessage",
+    "SubstitutionReplaceErrorMessage",
+    "SubstitutionNotificationSubjectText",
+    "SubstitutionNotificationStartDateText",
+    "SubstitutionNotificationEndDateText",
+    "SubstitutionDialogDateInputErrorMessage",
+    "UserIsSystemErrorMessage"
+  ],
+  "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
+  "ServerNamespace": "DirRX.SubstitutionsManagment.Server",
+  "SharedAssemblyName": "DirRX.SubstitutionsManagment.Shared",
+  "SharedNamespace": "DirRX.SubstitutionsManagment.Shared",
+  "SpecialFolders": [],
+  "Version": "0.0.1.0",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "ModuleMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "DomainApi",
+      "Number": 3
+    }
+  ]
+}
