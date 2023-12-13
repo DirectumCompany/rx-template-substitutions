@@ -58,4 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SubstitutionManagerRoleName" xml:space="preserve">
+    <value>Employees with the right to create substitutions for themselves</value>
+  </data>
+  <data name="SubstitutionManagerRoleDescription" xml:space="preserve">
+    <value>Employees with the right to create substitutions for themselves.</value>
+  </data>
+  <data name="DepartmentSubstitutionManagerRoleName" xml:space="preserve">
+    <value>Responsible for setting up substitutions for the department</value>
+  </data>
+  <data name="DepartmentSubstitutionManagerRoleDescription" xml:space="preserve">
+    <value>Responsible for setting up substitutions for the department.</value>
+  </data>
 </root>

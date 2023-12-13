@@ -62,7 +62,8 @@
     }
   ],
   "HandledEvents": [
-    "VisibilityServer"
+    "VisibilityServer",
+    "InitializingServer"
   ],
   "IconResourcesKeys": [],
   "Importance": "Low",
@@ -73,10 +74,35 @@
   "Overridden": [
     "Importance"
   ],
+  "PublicConstants": [
+    {
+      "Name": "DepartmentSubstitutionManager",
+      "ParentClasses": [
+        "Module",
+        "RoleGuid"
+      ],
+      "TypeName": "System.Guid",
+      "Value": "new System.Guid(\"5D81B15B-CDEC-423F-BC3C-7A1EF4415340\")"
+    },
+    {
+      "Name": "SubstitutionManager",
+      "ParentClasses": [
+        "Module",
+        "RoleGuid"
+      ],
+      "TypeName": "System.Guid",
+      "Value": "new System.Guid(\"1DAC6D4F-9502-44A7-8872-1E8F4449B007\")"
+    }
+  ],
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "DirRX.SubstitutionsManagment",
-  "ResourcesKeys": [],
+  "ResourcesKeys": [
+    "SubstitutionManagerRoleName",
+    "SubstitutionManagerRoleDescription",
+    "DepartmentSubstitutionManagerRoleName",
+    "DepartmentSubstitutionManagerRoleDescription"
+  ],
   "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
   "ServerNamespace": "DirRX.SubstitutionsManagment.Server",
   "SharedAssemblyName": "DirRX.SubstitutionsManagment.Shared",

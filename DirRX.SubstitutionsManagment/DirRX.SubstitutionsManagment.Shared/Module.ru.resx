@@ -58,4 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="SubstitutionManagerRoleName" xml:space="preserve">
+    <value>Cотрудники с правом создавать замещения на себя</value>
+  </data>
+  <data name="SubstitutionManagerRoleDescription" xml:space="preserve">
+    <value>Cотрудники с правом создавать замещения на себя.</value>
+  </data>
+  <data name="DepartmentSubstitutionManagerRoleName" xml:space="preserve">
+    <value>Ответственные за настройку замещений для подразделения</value>
+  </data>
+  <data name="DepartmentSubstitutionManagerRoleDescription" xml:space="preserve">
+    <value>Ответственные за настройку замещений для подразделения.</value>
+  </data>
 </root>
