@@ -1,0 +1,97 @@
+{
+  "$type": "Sungero.Metadata.ModuleMetadata, Sungero.Metadata",
+  "NameGuid": "e282aaca-e636-4ba9-b955-b573e3cca133",
+  "Name": "SubstitutionsManagment",
+  "AsyncHandlers": [],
+  "ClientAssemblyName": "DirRX.SubstitutionsManagment.Client",
+  "ClientBaseAssemblyName": "DirRX.SubstitutionsManagment.ClientBase",
+  "ClientBaseNamespace": "DirRX.SubstitutionsManagment.ClientBase",
+  "ClientNamespace": "DirRX.SubstitutionsManagment.Client",
+  "Code": "Substi1",
+  "CompanyCode": "DirRX",
+  "Cover": {
+    "NameGuid": "6f44d1b3-f094-4d5b-9db5-6eeb94aff2da",
+    "Actions": [
+      {
+        "$type": "Sungero.Metadata.CoverFunctionActionMetadata, Sungero.Metadata",
+        "NameGuid": "05f9f328-face-472b-be63-7d24e2f9d2f7",
+        "Name": "UpdateSubstitution",
+        "FunctionName": "UpdateSubstitution",
+        "GroupId": "12e09f51-e387-4d17-a038-0d0db4e38ff9",
+        "PreviousItemGuid": "1347a935-94cf-41ad-a064-b8f30e057184"
+      },
+      {
+        "$type": "Sungero.Metadata.CoverFunctionActionMetadata, Sungero.Metadata",
+        "NameGuid": "1347a935-94cf-41ad-a064-b8f30e057184",
+        "Name": "CreateSubstitution",
+        "FunctionName": "CreateSubstitution",
+        "GroupId": "12e09f51-e387-4d17-a038-0d0db4e38ff9"
+      }
+    ],
+    "Background": null,
+    "Footer": {
+      "NameGuid": "18eda24b-f69a-467d-814c-8a66b704eb9d",
+      "BackgroundPosition": "Stretch"
+    },
+    "Groups": [
+      {
+        "NameGuid": "12e09f51-e387-4d17-a038-0d0db4e38ff9",
+        "Name": "Substitutions",
+        "BackgroundPosition": "Stretch",
+        "IconName": "GroupIconSubstitutions_12e09f51e3874d17a0380d0db4e38ff9.png",
+        "TabId": "3dff3cf7-b64b-40be-a3ff-8436a53da490"
+      }
+    ],
+    "Header": {
+      "NameGuid": "5f8d37db-5a45-40f1-8539-d4409e7130ad",
+      "BackgroundPosition": "Stretch"
+    },
+    "Tabs": [
+      {
+        "NameGuid": "3dff3cf7-b64b-40be-a3ff-8436a53da490",
+        "Name": "Tab"
+      }
+    ]
+  },
+  "Dependencies": [
+    {
+      "Id": "1a021951-d3f7-40d9-bdb2-e2d853081b3e",
+      "IsSolutionModule": true,
+      "MaxVersion": "",
+      "MinVersion": ""
+    }
+  ],
+  "HandledEvents": [
+    "VisibilityServer"
+  ],
+  "IconResourcesKeys": [],
+  "Importance": "Low",
+  "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "InterfaceNamespace": "DirRX.SubstitutionsManagment",
+  "IsolatedAssemblyName": "DirRX.SubstitutionsManagment.Isolated",
+  "IsolatedNamespace": "DirRX.SubstitutionsManagment.Isolated",
+  "Overridden": [
+    "Importance"
+  ],
+  "PublicStructures": [],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "DirRX.SubstitutionsManagment",
+  "ResourcesKeys": [],
+  "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
+  "ServerNamespace": "DirRX.SubstitutionsManagment.Server",
+  "SharedAssemblyName": "DirRX.SubstitutionsManagment.Shared",
+  "SharedNamespace": "DirRX.SubstitutionsManagment.Shared",
+  "SpecialFolders": [],
+  "Version": "0.0.1.0",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "ModuleMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "DomainApi",
+      "Number": 3
+    }
+  ]
+}
