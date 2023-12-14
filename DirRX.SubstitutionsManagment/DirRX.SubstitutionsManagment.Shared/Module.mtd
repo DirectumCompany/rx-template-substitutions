@@ -145,7 +145,7 @@
   ],
   "PublicStructures": [
     {
-      "Name": "SubstitutionInfo",
+      "Name": "SubstitutionDialogStructure",
       "IsPublic": true,
       "Properties": [
         {

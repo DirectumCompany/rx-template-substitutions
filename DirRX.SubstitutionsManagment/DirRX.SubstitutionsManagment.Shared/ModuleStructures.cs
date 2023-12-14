@@ -11,7 +11,7 @@ namespace DirRX.SubstitutionsManagment.Structures.Module
   /// Информация о замещении.
   /// </summary>
   [Public]
-  partial class SubstitutionInfo
+  partial class SubstitutionDialogStructure
   {
     public ISubstitution Substitution {get; set;}
     public IUser User {get; set;}

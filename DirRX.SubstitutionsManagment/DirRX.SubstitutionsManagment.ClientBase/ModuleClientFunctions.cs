@@ -15,13 +15,13 @@ namespace DirRX.SubstitutionsManagment.Client
     /// <returns>Результат проверки.</returns>
     public virtual bool CheckUserRights()
     {
-      if (!PublicFunctions.Module.Remote.isSubstitutionManager(Employees.Current) &&
-          !PublicFunctions.Module.Remote.isDepartmentSubstitutionManager(Employees.Current))
-      {
+      var hasRights = PublicFunctions.Module.Remote.isSubstitutionManager(Employees.Current) ||
+        PublicFunctions.Module.Remote.isDepartmentSubstitutionManager(Employees.Current);
+      
+      if (!hasRights)
         Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.NoRightsErrorMessage, MessageType.Error);
-        return false;
-      }
-      return true;
+      
+      return hasRights;
     }
     
     /// <summary>
@@ -32,8 +32,8 @@ namespace DirRX.SubstitutionsManagment.Client
       if (!CheckUserRights())
         return;
       
-      var substitutionInfo = new Structures.Module.SubstitutionInfo();
-      var result = ShowSubstitutionInputDialog(false, substitutionInfo);
+      var substitutionStruct = new Structures.Module.SubstitutionDialogStructure();
+      var result = ShowSubstitutionInputDialog(false, substitutionStruct);
     }
     
     /// <summary>
@@ -44,8 +44,8 @@ namespace DirRX.SubstitutionsManagment.Client
       if (!CheckUserRights())
         return;
       
-      var substitutionInfo = new Structures.Module.SubstitutionInfo();
-      var result = ShowSubstitutionInputDialog(true, substitutionInfo);
+      var substitutionStruct = new Structures.Module.SubstitutionDialogStructure();
+      var result = ShowSubstitutionInputDialog(true, substitutionStruct);
     }
     
     /// <summary>
@@ -54,7 +54,7 @@ namespace DirRX.SubstitutionsManagment.Client
     /// <param name="needUpdate">Признак необходимости обновления существующего замещения.</param>
     /// <param name="substitutionInfo">Признак необходимости изменения замещения.</param>
     /// <returns>Результат выполнения диалога.</returns>
-    public virtual bool ShowSubstitutionInputDialog(bool needUpdate, Structures.Module.ISubstitutionInfo substitutionInfo)
+    public virtual bool ShowSubstitutionInputDialog(bool needUpdate, Structures.Module.ISubstitutionDialogStructure substitutionStruct)
     {
       var user = Employees.Current;
       var isDepartmentManager = PublicFunctions.Module.Remote.isDepartmentSubstitutionManager(user);
@@ -62,8 +62,8 @@ namespace DirRX.SubstitutionsManagment.Client
         Dialogs.CreateInputDialog(DirRX.SubstitutionsManagment.Resources.UpdateSubstitutionDialogName) :
         Dialogs.CreateInputDialog(DirRX.SubstitutionsManagment.Resources.CreateSubstitutionDialogName);
       
+      # region Реквизиты диалога.
       Sungero.Core.INavigationDialogValue<ISubstitution> substitution = null;
-      
       if (needUpdate)
         substitution = dialog.AddSelect(Substitutions.Info.LocalizedName, true, Substitutions.Null)
           .WithLookupMode(LookupMode.Standalone)
@@ -79,7 +79,9 @@ namespace DirRX.SubstitutionsManagment.Client
       var startDate = dialog.AddDate(Substitutions.Info.Properties.StartDate.LocalizedName, false);
       var endDate = dialog.AddDate(Substitutions.Info.Properties.EndDate.LocalizedName, false);
       var comment = dialog.AddString(Substitutions.Info.Properties.Comment.LocalizedName, false);
+      #endregion
       
+      #region Автозаполнение реквизитов диалога по выбранному замещению.
       if (needUpdate)
         substitution.SetOnValueChanged((x) =>
                                        {
@@ -92,19 +94,21 @@ namespace DirRX.SubstitutionsManagment.Client
                                            comment.Value = x.NewValue?.Comment;
                                          }
                                        });
+      #endregion
       
+      #region Подтверждение ввода данных.
       if (dialog.Show() == DialogButtons.Ok)
       {
-        substitutionInfo.Substitution = substitution?.Value;
-        substitutionInfo.User = substituted.Value;
-        substitutionInfo.Substitute = substitute.Value;
-        substitutionInfo.StartDate = startDate.Value;
-        substitutionInfo.EndDate = endDate.Value;
-        substitutionInfo.Comment = comment.Value;
+        substitutionStruct.Substitution = substitution?.Value;
+        substitutionStruct.User = substituted.Value;
+        substitutionStruct.Substitute = substitute.Value;
+        substitutionStruct.StartDate = startDate.Value;
+        substitutionStruct.EndDate = endDate.Value;
+        substitutionStruct.Comment = comment.Value;
         return true;
       }
-      
       return false;
+      #endregion
     }
 
   }
