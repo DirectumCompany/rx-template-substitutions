@@ -94,14 +94,108 @@
       "Value": "new System.Guid(\"1DAC6D4F-9502-44A7-8872-1E8F4449B007\")"
     }
   ],
-  "PublicStructures": [],
+  "PublicFunctions": [
+    {
+      "Name": "GetEmployeeSubstitutions",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "employee",
+          "ParameterType": "global::Sungero.Company.IEmployee",
+          "ParameterTypeFullName": "Sungero.Company.IEmployee, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "isDepartmentManager",
+          "ParameterType": "global::System.Boolean",
+          "ParameterTypeFullName": "System.Boolean"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.Linq.IQueryable<global::Sungero.CoreEntities.ISubstitution>",
+      "ReturnTypeFullName": "System.Linq.IQueryable"
+    },
+    {
+      "Name": "isDepartmentSubstitutionManager",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "user",
+          "ParameterType": "global::Sungero.CoreEntities.IUser",
+          "ParameterTypeFullName": "Sungero.CoreEntities.IUser, Sungero.Domain.Shared"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "isSubstitutionManager",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "user",
+          "ParameterType": "global::Sungero.CoreEntities.IUser",
+          "ParameterTypeFullName": "Sungero.CoreEntities.IUser, Sungero.Domain.Shared"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    }
+  ],
+  "PublicStructures": [
+    {
+      "Name": "SubstitutionInfo",
+      "IsPublic": true,
+      "Properties": [
+        {
+          "Name": "Substitution",
+          "IsEntity": true,
+          "IsNullable": true,
+          "TypeFullName": "global::Sungero.CoreEntities.ISubstitution"
+        },
+        {
+          "Name": "User",
+          "IsEntity": true,
+          "IsNullable": true,
+          "TypeFullName": "global::Sungero.CoreEntities.IUser"
+        },
+        {
+          "Name": "Substitute",
+          "IsEntity": true,
+          "IsNullable": true,
+          "TypeFullName": "global::Sungero.CoreEntities.IUser"
+        },
+        {
+          "Name": "StartDate",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.DateTime>"
+        },
+        {
+          "Name": "EndDate",
+          "IsNullable": true,
+          "TypeFullName": "global::System.Nullable<global::System.DateTime>"
+        },
+        {
+          "Name": "Comment",
+          "IsNullable": true,
+          "TypeFullName": "global::System.String"
+        }
+      ],
+      "StructureNamespace": "DirRX.SubstitutionsManagment.Structures.Module"
+    }
+  ],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "DirRX.SubstitutionsManagment",
   "ResourcesKeys": [
     "SubstitutionManagerRoleName",
     "SubstitutionManagerRoleDescription",
     "DepartmentSubstitutionManagerRoleName",
-    "DepartmentSubstitutionManagerRoleDescription"
+    "DepartmentSubstitutionManagerRoleDescription",
+    "SubstitutedFieldName",
+    "UpdateSubstitutionDialogName",
+    "CreateSubstitutionDialogName",
+    "NoRightsErrorMessage"
   ],
   "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
   "ServerNamespace": "DirRX.SubstitutionsManagment.Server",

@@ -70,4 +70,16 @@
   <data name="DepartmentSubstitutionManagerRoleDescription" xml:space="preserve">
     <value>Ответственные за настройку замещений для подразделения.</value>
   </data>
+  <data name="SubstitutedFieldName" xml:space="preserve">
+    <value>Замещаемый</value>
+  </data>
+  <data name="UpdateSubstitutionDialogName" xml:space="preserve">
+    <value>Изменение замещения</value>
+  </data>
+  <data name="CreateSubstitutionDialogName" xml:space="preserve">
+    <value>Создание замещения</value>
+  </data>
+  <data name="NoRightsErrorMessage" xml:space="preserve">
+    <value>Нет прав для выполнения действия. Обратитесь к администратору.</value>
+  </data>
 </root>

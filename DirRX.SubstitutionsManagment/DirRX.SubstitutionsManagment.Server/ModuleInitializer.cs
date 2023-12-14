@@ -20,11 +20,11 @@ namespace DirRX.SubstitutionsManagment.Server
       // Cотрудники с правом создавать замещения на себя.
       Sungero.Docflow.PublicInitializationFunctions.Module.CreateRole(DirRX.SubstitutionsManagment.Resources.SubstitutionManagerRoleName,
                                                                       DirRX.SubstitutionsManagment.Resources.SubstitutionManagerRoleDescription,
-                                                                      DirRX.SubstitutionsManagment.PublicConstants.Module.RoleGuid.SubstitutionManager);
+                                                                      Constants.Module.RoleGuid.SubstitutionManager);
       // Ответственные за настройку замещений для подразделения.
       Sungero.Docflow.PublicInitializationFunctions.Module.CreateRole(DirRX.SubstitutionsManagment.Resources.DepartmentSubstitutionManagerRoleName,
                                                                       DirRX.SubstitutionsManagment.Resources.DepartmentSubstitutionManagerRoleDescription,
-                                                                      DirRX.SubstitutionsManagment.PublicConstants.Module.RoleGuid.DepartmentSubstitutionManager);
+                                                                      Constants.Module.RoleGuid.DepartmentSubstitutionManager);
     }
     
     /// <summary>

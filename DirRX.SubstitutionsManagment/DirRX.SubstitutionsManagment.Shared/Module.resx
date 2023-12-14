@@ -70,4 +70,16 @@
   <data name="DepartmentSubstitutionManagerRoleDescription" xml:space="preserve">
     <value>Responsible for setting up substitutions for the department.</value>
   </data>
+  <data name="SubstitutedFieldName" xml:space="preserve">
+    <value>Substituted</value>
+  </data>
+  <data name="UpdateSubstitutionDialogName" xml:space="preserve">
+    <value>Update substitution</value>
+  </data>
+  <data name="CreateSubstitutionDialogName" xml:space="preserve">
+    <value>Create substitution</value>
+  </data>
+  <data name="NoRightsErrorMessage" xml:space="preserve">
+    <value>You do not have permission to perform the action. Contact your administrator.</value>
+  </data>
 </root>
