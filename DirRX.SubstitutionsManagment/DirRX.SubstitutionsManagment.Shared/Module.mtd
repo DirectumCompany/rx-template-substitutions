@@ -105,6 +105,11 @@
       "IsSolutionModule": true,
       "MaxVersion": "",
       "MinVersion": ""
+    },
+    {
+      "Id": "92491aa6-c4df-4f46-a807-ebdd337bda74",
+      "MaxVersion": "",
+      "MinVersion": "1.1.0.0"
     }
   ],
   "HandledEvents": [
@@ -149,11 +154,29 @@
           "Name": "substitutionStruct",
           "ParameterType": "global::DirRX.SubstitutionsManagment.Structures.Module.ISubstitutionDialogStructure",
           "ParameterTypeFullName": "DirRX.SubstitutionsManagment.Structures.Module.ISubstitutionDialogStructure"
+        },
+        {
+          "Name": "isUpdate",
+          "ParameterType": "global::System.Boolean",
+          "ParameterTypeFullName": "System.Boolean"
         }
       ],
       "Placement": "Shared",
       "ReturnType": "void",
       "ReturnTypeFullName": "System.Void"
+    },
+    {
+      "Name": "FillSubstitutionNotificationSubject",
+      "Parameters": [
+        {
+          "Name": "substitution",
+          "ParameterType": "global::Sungero.CoreEntities.ISubstitution",
+          "ParameterTypeFullName": "Sungero.CoreEntities.ISubstitution, Sungero.Domain.Shared"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
     },
     {
       "Name": "GetEmployeeSubstitutions",
@@ -201,6 +224,20 @@
       "Placement": "Shared",
       "ReturnType": "global::System.Boolean",
       "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "SendSubstitutionNotification",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "substitution",
+          "ParameterType": "global::Sungero.CoreEntities.ISubstitution",
+          "ParameterTypeFullName": "Sungero.CoreEntities.ISubstitution, Sungero.Domain.Shared"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
     }
   ],
   "PublicStructures": [
@@ -256,7 +293,10 @@
     "UpdateSubstitutionDialogName",
     "CreateSubstitutionDialogName",
     "NoRightsErrorMessage",
-    "SubstitutionReplaceErrorMessage"
+    "SubstitutionReplaceErrorMessage",
+    "SubstitutionNotificationSubjectText",
+    "SubstitutionNotificationStartDateText",
+    "SubstitutionNotificationEndDateText"
   ],
   "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
   "ServerNamespace": "DirRX.SubstitutionsManagment.Server",

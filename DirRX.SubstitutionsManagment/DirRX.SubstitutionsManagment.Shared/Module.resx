@@ -85,4 +85,13 @@
   <data name="SubstitutionReplaceErrorMessage" xml:space="preserve">
     <value>The user cannot replace himself.</value>
   </data>
+  <data name="SubstitutionNotificationSubjectText" xml:space="preserve">
+    <value>A replacement was created/modified where you are the replacement {0}</value>
+  </data>
+  <data name="SubstitutionNotificationStartDateText" xml:space="preserve">
+    <value> from {0}</value>
+  </data>
+  <data name="SubstitutionNotificationEndDateText" xml:space="preserve">
+    <value> to {0}</value>
+  </data>
 </root>

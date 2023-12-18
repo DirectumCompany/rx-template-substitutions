@@ -85,4 +85,13 @@
   <data name="SubstitutionReplaceErrorMessage" xml:space="preserve">
     <value>Пользователь не может замещать самого себя.</value>
   </data>
+  <data name="SubstitutionNotificationSubjectText" xml:space="preserve">
+    <value>Создано/изменено замещение, где вы являетесь замещающим {0}</value>
+  </data>
+  <data name="SubstitutionNotificationStartDateText" xml:space="preserve">
+    <value> с {0}</value>
+  </data>
+  <data name="SubstitutionNotificationEndDateText" xml:space="preserve">
+    <value> по {0}</value>
+  </data>
 </root>

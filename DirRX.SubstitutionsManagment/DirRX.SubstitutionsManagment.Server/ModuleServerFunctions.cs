@@ -12,17 +12,18 @@ namespace DirRX.SubstitutionsManagment.Server
     /// <summary>
     /// Отправки уведомление замещающему сотруднику о создании/изменения замещения.
     /// </summary>
-    public void SendSubstitutionNotification(ISubstitution substitution)
+    [Public, Remote]
+    public virtual void SendSubstitutionNotification(ISubstitution substitution)
     {
       try
       {
-        Sungero
-        var task = Sungero.Workflow.SimpleTasks.CreateWithNotices("Уведомление", substitution.Substitute);
+        var subject = PublicFunctions.Module.FillSubstitutionNotificationSubject(substitution);
+        var task = Sungero.Workflow.SimpleTasks.CreateWithNotices(subject, substitution.Substitute);
         task.Attachments.Add(substitution);
-        task.ActiveText = "das";
+        task.ActiveText = substitution.Comment;
         task.Save();
         task.Start();
-        Logger.DebugFormat("Async Handler - SendSubstitutionNotification. ID групповой заявки: {0}. Уведомление пользователю успешно отправлено. TaskId: {1}.", task.Id);
+        Logger.DebugFormat("Async Handler - SendSubstitutionNotification. Уведомление пользователю успешно отправлено. Id уведомления: {0}.", task.Id);
       }
       catch (Exception ex)
       {
@@ -34,12 +35,12 @@ namespace DirRX.SubstitutionsManagment.Server
     /// Создать/изменить замещение.
     /// </summary>
     /// <param name="substitutionStruct">Структура данных, содержащая информацию о замещении.</param>
+    /// <param name="isUpdate">Признак необходимости обновления существующего замещения.</param>
     [Public, Remote(IsPure = true)]
-    public virtual void CreateOrUpdateSubstitution(Structures.Module.ISubstitutionDialogStructure substitutionStruct)
+    public virtual void CreateOrUpdateSubstitution(Structures.Module.ISubstitutionDialogStructure substitutionStruct, bool isUpdate)
     {
       var substitution = substitutionStruct.Substitution;
-      var isUpdate = substitution != null;
-      if (isUpdate && Users.Equals(substitutionStruct.SubstitutedUser, substitution.User) && Users.Equals(substitutionStruct.Substitute, substitution.Substitute) &&
+      if (isUpdate && substitution != null && Users.Equals(substitutionStruct.SubstitutedUser, substitution.User) && Users.Equals(substitutionStruct.Substitute, substitution.Substitute) &&
           substitutionStruct.StartDate == substitution.StartDate && substitutionStruct.EndDate == substitution.EndDate && substitutionStruct.Comment == substitution.Comment)
         return;
 

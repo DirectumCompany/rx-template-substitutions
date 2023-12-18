@@ -68,7 +68,7 @@ namespace DirRX.SubstitutionsManagment.Server
                                  substitution.Save();
                                  Logger.DebugFormat("AsyncHandler - SubstitutionAsyncHandler. Создано/обновлено замещение. Id замещения: {0}, Id замещаемого пользователя: {1}",
                                                     substitution.Id, substitution.User.Id);
-                                  
+                                 PublicFunctions.Module.Remote.SendSubstitutionNotification(substitution);
                                }
                                catch (Exception ex)
                                {
