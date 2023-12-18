@@ -296,7 +296,8 @@
     "SubstitutionReplaceErrorMessage",
     "SubstitutionNotificationSubjectText",
     "SubstitutionNotificationStartDateText",
-    "SubstitutionNotificationEndDateText"
+    "SubstitutionNotificationEndDateText",
+    "SubstitutionDialogDateInputErrorMessage"
   ],
   "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
   "ServerNamespace": "DirRX.SubstitutionsManagment.Server",

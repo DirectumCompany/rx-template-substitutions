@@ -94,4 +94,7 @@
   <data name="SubstitutionNotificationEndDateText" xml:space="preserve">
     <value> to {0}</value>
   </data>
+  <data name="SubstitutionDialogDateInputErrorMessage" xml:space="preserve">
+    <value>The start date must be less than the end date</value>
+  </data>
 </root>

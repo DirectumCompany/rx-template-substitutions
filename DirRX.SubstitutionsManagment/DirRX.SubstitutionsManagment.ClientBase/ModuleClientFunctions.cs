@@ -50,7 +50,7 @@ namespace DirRX.SubstitutionsManagment.Client
       var isUpdate = true;
       var substitutionStruct = new Structures.Module.SubstitutionDialogStructure();
       var result = ShowSubstitutionInputDialog(substitutionStruct, isUpdate);
-            var substitution = substitutionStruct.Substitution;
+      var substitution = substitutionStruct.Substitution;
       if (result)
         Functions.Module.Remote.CreateOrUpdateSubstitution(substitutionStruct, isUpdate);
     }
@@ -103,15 +103,19 @@ namespace DirRX.SubstitutionsManagment.Client
                                        });
       #endregion
       
+      #region Валидация диалога.
+      dialog.SetOnRefresh(er =>
+                          {
+                            if (startDate.Value >= endDate.Value)
+                              er.AddError(DirRX.SubstitutionsManagment.Resources.SubstitutionDialogDateInputErrorMessage, startDate, endDate);
+                            if (substitutedEmployee.Value != null && substitute.Value != null && Employees.Equals(substitutedEmployee.Value, substitute.Value))
+                              er.AddError(DirRX.SubstitutionsManagment.Resources.SubstitutionReplaceErrorMessage, substitutedEmployee, substitute);
+                          });
+      #endregion
+      
       #region Подтверждение ввода данных.
       if (dialog.Show() == DialogButtons.Ok)
       {
-        if (Employees.Equals(substitutedEmployee.Value, substitute.Value))
-        {
-          Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.SubstitutionReplaceErrorMessage, MessageType.Error);
-          return false;
-        }
-        
         substitutionStruct.Substitution = substitution?.Value;
         substitutionStruct.SubstitutedUser = substitutedEmployee.Value;
         substitutionStruct.Substitute = substitute.Value;
