@@ -82,4 +82,7 @@
   <data name="NoRightsErrorMessage" xml:space="preserve">
     <value>Нет прав для выполнения действия. Обратитесь к администратору.</value>
   </data>
+  <data name="SubstitutionReplaceErrorMessage" xml:space="preserve">
+    <value>Пользователь не может замещать самого себя.</value>
+  </data>
 </root>

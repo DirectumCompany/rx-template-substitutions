@@ -32,8 +32,11 @@ namespace DirRX.SubstitutionsManagment.Client
       if (!CheckUserRights())
         return;
       
+      var isUpdate = false;
       var substitutionStruct = new Structures.Module.SubstitutionDialogStructure();
-      var result = ShowSubstitutionInputDialog(false, substitutionStruct);
+      var result = ShowSubstitutionInputDialog(substitutionStruct, isUpdate);
+      if (result)
+        Functions.Module.Remote.CreateOrUpdateSubstitution(substitutionStruct);
     }
     
     /// <summary>
@@ -44,34 +47,37 @@ namespace DirRX.SubstitutionsManagment.Client
       if (!CheckUserRights())
         return;
       
+      var isUpdate = true;
       var substitutionStruct = new Structures.Module.SubstitutionDialogStructure();
-      var result = ShowSubstitutionInputDialog(true, substitutionStruct);
+      var result = ShowSubstitutionInputDialog(substitutionStruct, isUpdate);
+      if (result)
+        Functions.Module.Remote.CreateOrUpdateSubstitution(substitutionStruct);
     }
     
     /// <summary>
     /// Показать диалог создания/изменения замещения.
     /// </summary>
-    /// <param name="needUpdate">Признак необходимости обновления существующего замещения.</param>
-    /// <param name="substitutionInfo">Признак необходимости изменения замещения.</param>
+    /// <param name="substitutionStruct">Структура данных, содержащая информацию о замещении.</param>
+    /// <param name="isUpdate">Признак необходимости обновления существующего замещения.</param>
     /// <returns>Результат выполнения диалога.</returns>
-    public virtual bool ShowSubstitutionInputDialog(bool needUpdate, Structures.Module.ISubstitutionDialogStructure substitutionStruct)
+    public virtual bool ShowSubstitutionInputDialog(Structures.Module.ISubstitutionDialogStructure substitutionStruct, bool isUpdate)
     {
       var user = Employees.Current;
       var isDepartmentManager = PublicFunctions.Module.Remote.isDepartmentSubstitutionManager(user);
-      var dialog = needUpdate ?
+      var dialog = isUpdate ?
         Dialogs.CreateInputDialog(DirRX.SubstitutionsManagment.Resources.UpdateSubstitutionDialogName) :
         Dialogs.CreateInputDialog(DirRX.SubstitutionsManagment.Resources.CreateSubstitutionDialogName);
       
-      # region Реквизиты диалога.
+      #region Реквизиты диалога.
       Sungero.Core.INavigationDialogValue<ISubstitution> substitution = null;
-      if (needUpdate)
+      if (isUpdate)
         substitution = dialog.AddSelect(Substitutions.Info.LocalizedName, true, Substitutions.Null)
           .WithLookupMode(LookupMode.Standalone)
           .From(PublicFunctions.Module.Remote.GetEmployeeSubstitutions(user, isDepartmentManager));
       
-      var substituted = dialog.AddSelect(DirRX.SubstitutionsManagment.Resources.SubstitutedFieldName, true, Employees.Null)
+      var substitutedEmployee = dialog.AddSelect(DirRX.SubstitutionsManagment.Resources.SubstitutedFieldName, true, Employees.Null)
         .WithLookupMode(LookupMode.Standalone);
-      substituted = isDepartmentManager ? substituted.Where(x => Departments.Equals(user.Department, x.Department)) : substituted.From(user);
+      substitutedEmployee = isDepartmentManager ? substitutedEmployee.Where(x => Departments.Equals(user.Department, x.Department)) : substitutedEmployee.From(user);
       
       var substitute = dialog.AddSelect(Substitutions.Info.Properties.Substitute.LocalizedName, true, Employees.Null)
         .WithLookupMode(LookupMode.Standalone);
@@ -82,12 +88,12 @@ namespace DirRX.SubstitutionsManagment.Client
       #endregion
       
       #region Автозаполнение реквизитов диалога по выбранному замещению.
-      if (needUpdate)
+      if (isUpdate)
         substitution.SetOnValueChanged((x) =>
                                        {
                                          if (!Substitutions.Equals(x.NewValue, x.OldValue))
                                          {
-                                           substituted.Value = Employees.As(x.NewValue?.User);
+                                           substitutedEmployee.Value = Employees.As(x.NewValue?.User);
                                            substitute.Value = Employees.As(x.NewValue?.Substitute);
                                            startDate.Value = x.NewValue?.StartDate;
                                            endDate.Value = x.NewValue?.EndDate;
@@ -99,8 +105,14 @@ namespace DirRX.SubstitutionsManagment.Client
       #region Подтверждение ввода данных.
       if (dialog.Show() == DialogButtons.Ok)
       {
+        if (Employees.Equals(substitutedEmployee.Value, substitute.Value))
+        {
+          Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.SubstitutionReplaceErrorMessage, MessageType.Error);
+          return false;
+        }
+        
         substitutionStruct.Substitution = substitution?.Value;
-        substitutionStruct.User = substituted.Value;
+        substitutionStruct.SubstitutedUser = substitutedEmployee.Value;
         substitutionStruct.Substitute = substitute.Value;
         substitutionStruct.StartDate = startDate.Value;
         substitutionStruct.EndDate = endDate.Value;

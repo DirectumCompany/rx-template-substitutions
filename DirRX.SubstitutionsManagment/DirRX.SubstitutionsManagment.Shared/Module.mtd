@@ -2,7 +2,53 @@
   "$type": "Sungero.Metadata.ModuleMetadata, Sungero.Metadata",
   "NameGuid": "e282aaca-e636-4ba9-b955-b573e3cca133",
   "Name": "SubstitutionsManagment",
-  "AsyncHandlers": [],
+  "AsyncHandlers": [
+    {
+      "NameGuid": "ae3d3145-cac3-4045-97d6-8abb48530c13",
+      "Name": "SubstitutionAsyncHandler",
+      "DelayPeriod": 10,
+      "DelayStrategy": "RegularDelayStrategy",
+      "IsHandlerGenerated": true,
+      "MaxRetryCount": 30,
+      "Parameters": [
+        {
+          "NameGuid": "1575799c-5143-4d1d-a36b-3944c164558c",
+          "Name": "SubstituteId",
+          "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "261ea9c5-6b00-420e-98c1-ad854c932d42",
+          "Name": "StartDate",
+          "ParameterType": "DateTime"
+        },
+        {
+          "NameGuid": "36872eaf-e39d-402c-8b20-0e8242889021",
+          "Name": "isUpdate",
+          "ParameterType": "Boolean"
+        },
+        {
+          "NameGuid": "5eaaddfa-1294-4dec-9528-55404d51b6b7",
+          "Name": "Comment",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "65acd375-3630-42a9-b344-9f42c77b3c25",
+          "Name": "SubstitutedUserId",
+          "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "725cdc23-3e1d-427a-a025-d965f7658694",
+          "Name": "EndDate",
+          "ParameterType": "DateTime"
+        },
+        {
+          "NameGuid": "a2a3acb1-2570-4d65-ae39-9d097f706c0b",
+          "Name": "SubstitutionId",
+          "ParameterType": "LongInteger"
+        }
+      ]
+    }
+  ],
   "ClientAssemblyName": "DirRX.SubstitutionsManagment.Client",
   "ClientBaseAssemblyName": "DirRX.SubstitutionsManagment.ClientBase",
   "ClientBaseNamespace": "DirRX.SubstitutionsManagment.ClientBase",
@@ -96,6 +142,20 @@
   ],
   "PublicFunctions": [
     {
+      "Name": "CreateOrUpdateSubstitution",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "substitutionStruct",
+          "ParameterType": "global::DirRX.SubstitutionsManagment.Structures.Module.ISubstitutionDialogStructure",
+          "ParameterTypeFullName": "DirRX.SubstitutionsManagment.Structures.Module.ISubstitutionDialogStructure"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
       "Name": "GetEmployeeSubstitutions",
       "IsRemote": true,
       "Parameters": [
@@ -155,7 +215,7 @@
           "TypeFullName": "global::Sungero.CoreEntities.ISubstitution"
         },
         {
-          "Name": "User",
+          "Name": "SubstitutedUser",
           "IsEntity": true,
           "IsNullable": true,
           "TypeFullName": "global::Sungero.CoreEntities.IUser"
@@ -195,7 +255,8 @@
     "SubstitutedFieldName",
     "UpdateSubstitutionDialogName",
     "CreateSubstitutionDialogName",
-    "NoRightsErrorMessage"
+    "NoRightsErrorMessage",
+    "SubstitutionReplaceErrorMessage"
   ],
   "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
   "ServerNamespace": "DirRX.SubstitutionsManagment.Server",

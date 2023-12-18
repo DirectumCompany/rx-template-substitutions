@@ -8,13 +8,13 @@ namespace DirRX.SubstitutionsManagment.Structures.Module
 {
 
   /// <summary>
-  /// Информация о замещении.
+  /// Структура данных, содержащая информацию о замещении.
   /// </summary>
   [Public]
   partial class SubstitutionDialogStructure
   {
     public ISubstitution Substitution {get; set;}
-    public IUser User {get; set;}
+    public IUser SubstitutedUser {get; set;}
     public IUser Substitute {get; set;}
     public DateTime? StartDate {get; set;}
     public DateTime? EndDate {get; set;}

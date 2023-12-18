@@ -82,4 +82,7 @@
   <data name="NoRightsErrorMessage" xml:space="preserve">
     <value>You do not have permission to perform the action. Contact your administrator.</value>
   </data>
+  <data name="SubstitutionReplaceErrorMessage" xml:space="preserve">
+    <value>The user cannot replace himself.</value>
+  </data>
 </root>

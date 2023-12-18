@@ -85,4 +85,10 @@
   <data name="CoverDescription_UpdateSubstitution" xml:space="preserve">
     <value>Updating substitutions for yourself or employees of your department.</value>
   </data>
+  <data name="AsyncHandler_Description_dee1ce2e7250479ea706648887fc074e" xml:space="preserve">
+    <value>AscHandler</value>
+  </data>
+  <data name="AsyncHandler_Description_ae3d3145cac3404597d68abb48530c13" xml:space="preserve">
+    <value>Creating/modifying a substitution.</value>
+  </data>
 </root>

@@ -82,4 +82,10 @@
   <data name="CoverDescription_UpdateSubstitution" xml:space="preserve">
     <value>Изменение замещений на себя или сотрудников своего подразделения.</value>
   </data>
+  <data name="AsyncHandler_Description_dee1ce2e7250479ea706648887fc074e" xml:space="preserve">
+    <value>AsyncHandler</value>
+  </data>
+  <data name="AsyncHandler_Description_ae3d3145cac3404597d68abb48530c13" xml:space="preserve">
+    <value>Создание/изменение замещения.</value>
+  </data>
 </root>

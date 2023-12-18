@@ -8,6 +8,33 @@ namespace DirRX.SubstitutionsManagment.Server
 {
   public class ModuleFunctions
   {
+    
+    /// <summary>
+    /// Создать/изменить замещение.
+    /// </summary>
+    /// <param name="substitutionStruct">Структура данных, содержащая информацию о замещении.</param>
+    [Public, Remote(IsPure = true)]
+    public virtual void CreateOrUpdateSubstitution(Structures.Module.ISubstitutionDialogStructure substitutionStruct)
+    {
+      var substitution = substitutionStruct.Substitution;
+      var isUpdate = substitution != null;
+      if (isUpdate && Users.Equals(substitutionStruct.SubstitutedUser, substitution.User) && Users.Equals(substitutionStruct.Substitute, substitution.Substitute) &&
+          substitutionStruct.StartDate == substitution.StartDate && substitutionStruct.EndDate == substitution.EndDate && substitutionStruct.Comment == substitution.Comment)
+        return;
+
+      var asyncHandler = AsyncHandlers.SubstitutionAsyncHandler.Create();
+      if (isUpdate)
+        asyncHandler.SubstitutionId = substitution.Id;
+      
+      asyncHandler.SubstitutedUserId = substitutionStruct.SubstitutedUser.Id;
+      asyncHandler.SubstituteId = substitutionStruct.Substitute.Id;
+      asyncHandler.StartDate = substitutionStruct.StartDate.GetValueOrDefault();
+      asyncHandler.EndDate = substitutionStruct.EndDate.GetValueOrDefault();
+      asyncHandler.Comment = substitutionStruct.Comment;
+      asyncHandler.isUpdate = isUpdate;
+      asyncHandler.ExecuteAsync();
+    }
+    
     /// <summary>
     /// Получить замещения для сотрудника, в которых он или сотрудник его подразделения является замещаемым.
     /// </summary>
