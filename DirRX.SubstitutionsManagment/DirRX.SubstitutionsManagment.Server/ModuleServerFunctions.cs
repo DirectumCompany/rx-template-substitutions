@@ -8,6 +8,27 @@ namespace DirRX.SubstitutionsManagment.Server
 {
   public class ModuleFunctions
   {
+
+    /// <summary>
+    /// Отправки уведомление замещающему сотруднику о создании/изменения замещения.
+    /// </summary>
+    public void SendSubstitutionNotification(ISubstitution substitution)
+    {
+      try
+      {
+        Sungero
+        var task = Sungero.Workflow.SimpleTasks.CreateWithNotices("Уведомление", substitution.Substitute);
+        task.Attachments.Add(substitution);
+        task.ActiveText = "das";
+        task.Save();
+        task.Start();
+        Logger.DebugFormat("Async Handler - SendSubstitutionNotification. ID групповой заявки: {0}. Уведомление пользователю успешно отправлено. TaskId: {1}.", task.Id);
+      }
+      catch (Exception ex)
+      {
+        Logger.ErrorFormat("Async Handler - SendSubstitutionNotification. Ошибка при отправке уведомления. Id адресата: {1}. Message: {2}. StackTrace: {3}.", substitution.Substitute.Id, ex.Message, ex.StackTrace);
+      }
+    }
     
     /// <summary>
     /// Создать/изменить замещение.
