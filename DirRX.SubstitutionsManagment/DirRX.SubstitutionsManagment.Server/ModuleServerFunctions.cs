@@ -10,7 +10,7 @@ namespace DirRX.SubstitutionsManagment.Server
   {
 
     /// <summary>
-    /// Отправки уведомление замещающему сотруднику о создании/изменения замещения.
+    /// Отправить уведомление замещающему сотруднику о создании/изменения замещения.
     /// </summary>
     [Public, Remote]
     public virtual void SendSubstitutionNotification(ISubstitution substitution)
@@ -39,10 +39,16 @@ namespace DirRX.SubstitutionsManagment.Server
     [Public, Remote(IsPure = true)]
     public virtual void CreateOrUpdateSubstitution(Structures.Module.ISubstitutionDialogStructure substitutionStruct, bool isUpdate)
     {
+      Logger.DebugFormat("CreateOrUpdateSubstitution. Начало создания/обновления замещения. Id инициатора: {0}.", Users.Current.Id);
       var substitution = substitutionStruct.Substitution;
+      
+      // Проверка реквизитов замещения.
       if (isUpdate && substitution != null && Users.Equals(substitutionStruct.SubstitutedUser, substitution.User) && Users.Equals(substitutionStruct.Substitute, substitution.Substitute) &&
           substitutionStruct.StartDate == substitution.StartDate && substitutionStruct.EndDate == substitution.EndDate && substitutionStruct.Comment == substitution.Comment)
+      {
+        Logger.DebugFormat("CreateOrUpdateSubstitution. Нет изменений реквизитов для замещения. Id замещения: {0}.", substitution.Id);
         return;
+      }
 
       var asyncHandler = AsyncHandlers.SubstitutionAsyncHandler.Create();
       if (isUpdate)
@@ -54,6 +60,8 @@ namespace DirRX.SubstitutionsManagment.Server
       asyncHandler.EndDate = substitutionStruct.EndDate.GetValueOrDefault();
       asyncHandler.Comment = substitutionStruct.Comment;
       asyncHandler.isUpdate = isUpdate;
+      
+      Logger.DebugFormat("CreateOrUpdateSubstitution. Старт асинхронного обработчика SubstitutionAsyncHandler для создания/обновления замещения.");
       asyncHandler.ExecuteAsync();
     }
     
