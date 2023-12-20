@@ -76,9 +76,10 @@ namespace DirRX.SubstitutionsManagment.Client
           .WithLookupMode(LookupMode.Standalone)
           .From(PublicFunctions.Module.Remote.GetEmployeeSubstitutions(user, isDepartmentManager));
       
-      var substitutedEmployee = dialog.AddSelect(DirRX.SubstitutionsManagment.Resources.SubstitutedFieldName, true, Employees.Null)
-        .WithLookupMode(LookupMode.Standalone);
-      substitutedEmployee = isDepartmentManager ? substitutedEmployee.Where(x => Departments.Equals(user.Department, x.Department)) : substitutedEmployee.From(user);
+      var substitutedEmployee = isDepartmentManager ?
+        dialog.AddSelect(DirRX.SubstitutionsManagment.Resources.SubstitutedFieldName, true, Employees.Null).Where(x => Departments.Equals(user.Department, x.Department)) :
+        dialog.AddSelect(DirRX.SubstitutionsManagment.Resources.SubstitutedFieldName, true, user).From(user);
+      substitutedEmployee = substitutedEmployee.WithLookupMode(LookupMode.Standalone);
       
       var substitute = dialog.AddSelect(Substitutions.Info.Properties.Substitute.LocalizedName, true, Employees.Null)
         .WithLookupMode(LookupMode.Standalone);
