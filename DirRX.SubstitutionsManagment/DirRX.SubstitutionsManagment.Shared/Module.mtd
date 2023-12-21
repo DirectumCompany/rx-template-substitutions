@@ -22,11 +22,6 @@
           "ParameterType": "DateTime"
         },
         {
-          "NameGuid": "36872eaf-e39d-402c-8b20-0e8242889021",
-          "Name": "isUpdate",
-          "ParameterType": "Boolean"
-        },
-        {
           "NameGuid": "5eaaddfa-1294-4dec-9528-55404d51b6b7",
           "Name": "Comment",
           "ParameterType": "String"
@@ -45,6 +40,11 @@
           "NameGuid": "a2a3acb1-2570-4d65-ae39-9d097f706c0b",
           "Name": "SubstitutionId",
           "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "b56c3a64-a7fb-4bf2-9f18-5059d635cab1",
+          "Name": "IsUpdate",
+          "ParameterType": "Boolean"
         }
       ]
     }
@@ -198,7 +198,7 @@
       "ReturnTypeFullName": "System.Linq.IQueryable"
     },
     {
-      "Name": "isDepartmentSubstitutionManager",
+      "Name": "IsDepartmentSubstitutionManager",
       "IsRemote": true,
       "Parameters": [
         {
@@ -212,7 +212,7 @@
       "ReturnTypeFullName": "System.Boolean"
     },
     {
-      "Name": "isSubstitutionManager",
+      "Name": "IsSubstitutionManager",
       "IsRemote": true,
       "Parameters": [
         {
@@ -233,6 +233,11 @@
           "Name": "substitution",
           "ParameterType": "global::Sungero.CoreEntities.ISubstitution",
           "ParameterTypeFullName": "Sungero.CoreEntities.ISubstitution, Sungero.Domain.Shared"
+        },
+        {
+          "Name": "logPrefix",
+          "ParameterType": "global::System.String",
+          "ParameterTypeFullName": "System.String"
         }
       ],
       "Placement": "Shared",

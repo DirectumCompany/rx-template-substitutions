@@ -12,8 +12,10 @@ namespace DirRX.SubstitutionsManagment.Server
     /// <summary>
     /// Отправить уведомление замещающему сотруднику о создании/изменения замещения.
     /// </summary>
+    /// <param name="substitution">Замещение.</param>
+    /// <param name="logPrefix">Префикс для лог-сообщений.</param>
     [Public, Remote]
-    public virtual void SendSubstitutionNotification(ISubstitution substitution)
+    public virtual void SendSubstitutionNotification(ISubstitution substitution, string logPrefix)
     {
       try
       {
@@ -23,11 +25,13 @@ namespace DirRX.SubstitutionsManagment.Server
         task.ActiveText = substitution.Comment;
         task.Save();
         task.Start();
-        Logger.DebugFormat("Async Handler - SendSubstitutionNotification. Уведомление пользователю успешно отправлено. Id уведомления: {0}.", task.Id);
+        Logger.DebugFormat("{0}. SubstitutionId {1}, SubstituteId {2}, NotificationId {3}. Уведомление пользователю успешно отправлено.", 
+                           logPrefix, substitution.Id, substitution.Substitute.Id, task.Id);
       }
       catch (Exception ex)
       {
-        Logger.ErrorFormat("Async Handler - SendSubstitutionNotification. Ошибка при отправке уведомления. Id адресата: {1}. Message: {2}. StackTrace: {3}.", substitution.Substitute.Id, ex.Message, ex.StackTrace);
+        Logger.ErrorFormat("{0}. SubstitutionId {1}, SubstituteId {2}. Ошибка при отправке уведомления. Message: {3}. StackTrace: {4}.", 
+                           logPrefix, substitution.Id, substitution.Substitute.Id, ex.Message, ex.StackTrace);
       }
     }
     
@@ -59,8 +63,7 @@ namespace DirRX.SubstitutionsManagment.Server
       asyncHandler.StartDate = substitutionStruct.StartDate.GetValueOrDefault();
       asyncHandler.EndDate = substitutionStruct.EndDate.GetValueOrDefault();
       asyncHandler.Comment = substitutionStruct.Comment;
-      asyncHandler.isUpdate = isUpdate;
-      
+      asyncHandler.IsUpdate = isUpdate;
       Logger.DebugFormat("CreateOrUpdateSubstitution. Старт асинхронного обработчика SubstitutionAsyncHandler для создания/обновления замещения.");
       asyncHandler.ExecuteAsync();
     }
@@ -86,7 +89,7 @@ namespace DirRX.SubstitutionsManagment.Server
     /// <param name="user">Пользователь.</param>
     /// <returns>Признак вхождение пользователя в роль.</returns>
     [Public, Remote(IsPure = true)]
-    public static bool isSubstitutionManager(IUser user)
+    public static bool IsSubstitutionManager(IUser user)
     {
       var role = Roles.GetAll(r => r.Sid == Constants.Module.RoleGuid.SubstitutionManager).FirstOrDefault();
       return user.IncludedIn(role);
@@ -98,7 +101,7 @@ namespace DirRX.SubstitutionsManagment.Server
     /// <param name="user">Пользователь.</param>
     /// <returns>Признак вхождение пользователя в роль.</returns>
     [Public, Remote(IsPure = true)]
-    public static bool isDepartmentSubstitutionManager(IUser user)
+    public static bool IsDepartmentSubstitutionManager(IUser user)
     {
       var role = Roles.GetAll(r => r.Sid == Constants.Module.RoleGuid.DepartmentSubstitutionManager).FirstOrDefault();
       return user.IncludedIn(role);

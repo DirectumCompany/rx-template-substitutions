@@ -15,8 +15,8 @@ namespace DirRX.SubstitutionsManagment.Client
     /// <returns>Результат проверки.</returns>
     public virtual bool CheckUserRights()
     {
-      var hasRights = PublicFunctions.Module.Remote.isSubstitutionManager(Employees.Current) ||
-        PublicFunctions.Module.Remote.isDepartmentSubstitutionManager(Employees.Current);
+      var hasRights = PublicFunctions.Module.Remote.IsSubstitutionManager(Employees.Current) ||
+        PublicFunctions.Module.Remote.IsDepartmentSubstitutionManager(Employees.Current);
       
       if (!hasRights)
         Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.NoRightsErrorMessage, MessageType.Error);
@@ -64,7 +64,7 @@ namespace DirRX.SubstitutionsManagment.Client
     public virtual bool ShowSubstitutionInputDialog(Structures.Module.ISubstitutionDialogStructure substitutionStruct, bool isUpdate)
     {
       var user = Employees.Current;
-      var isDepartmentManager = PublicFunctions.Module.Remote.isDepartmentSubstitutionManager(user);
+      var isDepartmentManager = PublicFunctions.Module.Remote.IsDepartmentSubstitutionManager(user);
       var dialog = isUpdate ?
         Dialogs.CreateInputDialog(DirRX.SubstitutionsManagment.Resources.UpdateSubstitutionDialogName) :
         Dialogs.CreateInputDialog(DirRX.SubstitutionsManagment.Resources.CreateSubstitutionDialogName);

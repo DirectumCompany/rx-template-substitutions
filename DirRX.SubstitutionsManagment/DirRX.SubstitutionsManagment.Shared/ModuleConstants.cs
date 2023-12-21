@@ -16,6 +16,7 @@ namespace DirRX.SubstitutionsManagment.Constants
       /// </summary>
       [Public]
       public static readonly Guid SubstitutionManager = Guid.Parse("1DAC6D4F-9502-44A7-8872-1E8F4449B007");
+      
       /// <summary>
       /// Ответственные за настройку замещений для подразделения.
       /// </summary>
