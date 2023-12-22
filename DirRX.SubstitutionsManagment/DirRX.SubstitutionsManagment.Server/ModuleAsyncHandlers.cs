@@ -75,7 +75,7 @@ namespace DirRX.SubstitutionsManagment.Server
         }
         catch (Exception ex)
         {
-          Logger.ErrorFormat("{0}. SubstitutedUserId {1}, SubstituteId {2}, IsUpdate {3}, SubstitutionId {4}, RetryIteration {5}. Ошибка при создании/обновлении замещения: {5}, StackTrace: {6}.",
+          Logger.ErrorFormat("{0}. SubstitutedUserId {1}, SubstituteId {2}, IsUpdate {3}, SubstitutionId {4}, RetryIteration {5}. Ошибка при создании/обновлении замещения: {6}, StackTrace: {7}.",
                              logPrefix, args.SubstitutedUserId, args.SubstituteId, args.IsUpdate, args.SubstitutionId, args.RetryIteration, ex.Message, ex.StackTrace);
         }
         finally
