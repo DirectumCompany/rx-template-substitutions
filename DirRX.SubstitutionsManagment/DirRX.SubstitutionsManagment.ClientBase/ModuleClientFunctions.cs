@@ -15,6 +15,12 @@ namespace DirRX.SubstitutionsManagment.Client
     /// <returns>Результат проверки.</returns>
     public virtual bool CheckUserRights()
     {
+      if (Employees.Current == null)
+      {
+        Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.UserIsSystemErrorMessage, MessageType.Error);
+        return false;
+      }
+      
       var hasRights = PublicFunctions.Module.Remote.IsSubstitutionManager(Employees.Current) ||
         PublicFunctions.Module.Remote.IsDepartmentSubstitutionManager(Employees.Current);
       

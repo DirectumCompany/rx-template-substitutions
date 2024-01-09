@@ -14,7 +14,7 @@ namespace DirRX.SubstitutionsManagment.Server
     /// <param name="args">Аргументы АО.</param>
     public virtual void SubstitutionAsyncHandler(DirRX.SubstitutionsManagment.Server.AsyncHandlerInvokeArgs.SubstitutionAsyncHandlerInvokeArgs args)
     {
-      var logPrefix = "AsyncHandler - SubstitutionAsyncHandler";
+      var logPrefix = "SubstitutionAsyncHandler";
       Logger.DebugFormat("{0}. SubstitutedUserId {1}, SubstituteId {2}, IsUpdate {3}, SubstitutionId {4}, RetryIteration {5}. Начало выполнения асинхронного обработчика.",
                          logPrefix, args.SubstitutedUserId, args.SubstituteId, args.IsUpdate, args.SubstitutionId, args.RetryIteration);
       try
@@ -32,24 +32,18 @@ namespace DirRX.SubstitutionsManagment.Server
         #region Проверки.
         if (args.IsUpdate && substitution == null)
         {
-          Logger.ErrorFormat("{0}. SubstitutionId {1}. Замещение - не найдено. Окончание выполнения АО.", logPrefix, args.SubstitutionId);
+          Logger.DebugFormat("{0}. SubstitutionId {1}. Замещение - не найдено. Окончание выполнения АО.", logPrefix, args.SubstitutionId);
           return;
         }
         if (substitutedUser == null || substitute == null)
         {
-          Logger.ErrorFormat("{0}. SubstitutedUserId {1}, SubstituteId {2}. Замещаемый или замещающий пользователь - не найден. Окончание выполнения АО.",
+          Logger.DebugFormat("{0}. SubstitutedUserId {1}, SubstituteId {2}. Замещаемый или замещающий пользователь - не найден. Окончание выполнения АО.",
                              logPrefix, args.SubstitutedUserId, args.SubstituteId);
           return;
         }
         #endregion
         
         #region Создание/обновление замещения.
-        if (args.IsUpdate)
-          Logger.DebugFormat("{0}. SubstitutionId {1}, SubstitutedUserId {2}, SubstituteId {3}. Обновление замещения.",
-                             logPrefix, substitution.Id, substitutedUser.Id, substitute.Id);
-        else
-          Logger.DebugFormat("{0}. SubstitutedUserId {1}, SubstituteId {2}. Создание замещения.",
-                             logPrefix, substitutedUser.Id, substitute.Id);
         var isLocked = false;
         try
         {
@@ -64,12 +58,12 @@ namespace DirRX.SubstitutionsManagment.Server
             substitution.Comment = args.Comment;
             substitution.Save();
             Logger.DebugFormat("{0}. SubstitutionId {1}, SubstitutedUserId {2}, SubstituteId {3}. Создано/обновлено замещение.",
-                                logPrefix, substitution.Id, substitutedUser.Id, substitute.Id);
+                               logPrefix, substitution.Id, substitutedUser.Id, substitute.Id);
             PublicFunctions.Module.Remote.SendSubstitutionNotification(substitution, logPrefix);
           }
           else
           {
-            Logger.ErrorFormat("{0}. SubstitutionId {1}. Не удалось установить блокировку на замещение.", logPrefix, substitution.Id);
+            Logger.DebugFormat("{0}. SubstitutionId {1}. Не удалось установить блокировку на замещение.", logPrefix, substitution.Id);
             args.Retry = true;
           }
         }
@@ -98,10 +92,10 @@ namespace DirRX.SubstitutionsManagment.Server
         Logger.DebugFormat("{0}. SubstitutionAsyncHandler. SubstitutedUserId {1}, SubstituteId {2}, IsUpdate {3}, substitutionId {4}, RetryIteration {5}. Асинхронный обработчик будет запущен повторно.",
                            logPrefix, args.SubstitutedUserId, args.SubstituteId, args.IsUpdate, args.SubstitutionId, args.RetryIteration);
       }
+      else
+        Logger.DebugFormat("{0}. SubstitutedUserId {1}, SubstituteId {2}, IsUpdate {3}, substitutionId {4}, RetryIteration {5}. Окончание выполнения асинхронного обработчика.",
+                           logPrefix, args.SubstitutedUserId, args.SubstituteId, args.IsUpdate, args.SubstitutionId, args.RetryIteration);
       #endregion
-      
-      Logger.DebugFormat("{0}. SubstitutedUserId {1}, SubstituteId {2}, IsUpdate {3}, substitutionId {4}, RetryIteration {5}. Окончание выполнения асинхронного обработчика.",
-                         logPrefix, args.SubstitutedUserId, args.SubstituteId, args.IsUpdate, args.SubstitutionId, args.RetryIteration);
     }
   }
 }

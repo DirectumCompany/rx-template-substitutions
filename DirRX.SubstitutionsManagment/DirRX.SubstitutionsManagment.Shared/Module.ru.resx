@@ -97,4 +97,7 @@
   <data name="SubstitutionDialogDateInputErrorMessage" xml:space="preserve">
     <value>Дата начала должна быть меньше даты окончания</value>
   </data>
+  <data name="UserIsSystemErrorMessage" xml:space="preserve">
+    <value>Выполнение действия недоступно для системного пользователя. Если вы являетесь администратором, используйте справочник Замещения на обложке модуля Администрирования.</value>
+  </data>
 </root>

@@ -25,12 +25,12 @@ namespace DirRX.SubstitutionsManagment.Server
         task.ActiveText = substitution.Comment;
         task.Save();
         task.Start();
-        Logger.DebugFormat("{0}. SubstitutionId {1}, SubstituteId {2}, NotificationId {3}. Уведомление пользователю успешно отправлено.", 
+        Logger.DebugFormat("{0}. SubstitutionId {1}, SubstituteId {2}, NotificationId {3}. Уведомление пользователю успешно отправлено.",
                            logPrefix, substitution.Id, substitution.Substitute.Id, task.Id);
       }
       catch (Exception ex)
       {
-        Logger.ErrorFormat("{0}. SubstitutionId {1}, SubstituteId {2}. Ошибка при отправке уведомления. Message: {3}. StackTrace: {4}.", 
+        Logger.ErrorFormat("{0}. SubstitutionId {1}, SubstituteId {2}. Ошибка при отправке уведомления. Message: {3}. StackTrace: {4}.",
                            logPrefix, substitution.Id, substitution.Substitute.Id, ex.Message, ex.StackTrace);
       }
     }
@@ -78,8 +78,11 @@ namespace DirRX.SubstitutionsManagment.Server
     public static IQueryable<ISubstitution> GetEmployeeSubstitutions(Sungero.Company.IEmployee employee, bool isDepartmentManager)
     {
       return Substitutions.GetAll()
-        .Where(s => Users.Equals(s.User, employee) || (
-          isDepartmentManager && Sungero.Company.Employees.Is(s.User) && Sungero.Company.Departments.Equals(Sungero.Company.Employees.As(s.User).Department, employee.Department)));
+        .Where(s => s.IsSystem == false &&
+               (Users.Equals(s.User, employee) ||
+                (isDepartmentManager &&
+                 Sungero.Company.Employees.Is(s.User) &&
+                 Sungero.Company.Departments.Equals(Sungero.Company.Employees.As(s.User).Department, employee.Department))));
     }
     
     
