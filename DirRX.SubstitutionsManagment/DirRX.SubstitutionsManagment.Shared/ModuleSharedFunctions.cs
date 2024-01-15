@@ -4,6 +4,7 @@ using System.Linq;
 using Sungero.Core;
 using Sungero.CoreEntities;
 using Sungero.Company;
+using Sungero.Workflow;
 
 namespace DirRX.SubstitutionsManagment.Shared
 {
@@ -22,13 +23,14 @@ namespace DirRX.SubstitutionsManagment.Shared
         Sungero.Parties.PublicFunctions.Person.GetFullName(Employees.As(substitution.User).Person, DeclensionCase.Accusative) :
         string.Empty;
       
-      var subject = DirRX.SubstitutionsManagment.Resources.SubstitutionNotificationSubjectTextFormat(name);
+      var subject = string.Empty;
+      subject = DirRX.SubstitutionsManagment.Resources.SubstitutionNotificationSubjectTextFormat(name);
       if (substitution.StartDate.HasValue)
         subject += DirRX.SubstitutionsManagment.Resources.SubstitutionNotificationStartDateTextFormat(substitution.StartDate.Value.ToShortDateString());
       if (substitution.EndDate.HasValue)
         subject += DirRX.SubstitutionsManagment.Resources.SubstitutionNotificationEndDateTextFormat(substitution.EndDate.Value.ToShortDateString());
       
-      return subject.ToString().Substring(0, Math.Min(subject.ToString().Length, 250));
+      return subject.Substring(0, Math.Min(subject.Length, Tasks.Info.Properties.Subject.Length));
     }
   }
 }
