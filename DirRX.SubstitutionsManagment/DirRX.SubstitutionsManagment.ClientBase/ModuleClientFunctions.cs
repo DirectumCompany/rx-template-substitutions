@@ -17,7 +17,7 @@ namespace DirRX.SubstitutionsManagment.Client
     {
       if (Employees.Current == null)
       {
-        Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.UserIsSystemErrorMessage, MessageType.Error);
+        Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.UserIsSystemErrorMessage, MessageType.Information);
         return false;
       }
       
