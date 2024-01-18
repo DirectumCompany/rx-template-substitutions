@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SubstitutionManagerRoleName" xml:space="preserve">
+    <value>Employees with the right to create substitutions for themselves</value>
+  </data>
+  <data name="SubstitutionManagerRoleDescription" xml:space="preserve">
+    <value>Employees with the right to create substitutions for themselves.</value>
+  </data>
+  <data name="DepartmentSubstitutionManagerRoleName" xml:space="preserve">
+    <value>Responsible for setting up substitutions for the department</value>
+  </data>
+  <data name="DepartmentSubstitutionManagerRoleDescription" xml:space="preserve">
+    <value>Responsible for setting up substitutions for the department.</value>
+  </data>
+  <data name="SubstitutedFieldName" xml:space="preserve">
+    <value>Substituted</value>
+  </data>
+  <data name="UpdateSubstitutionDialogName" xml:space="preserve">
+    <value>Update substitution</value>
+  </data>
+  <data name="CreateSubstitutionDialogName" xml:space="preserve">
+    <value>Create substitution</value>
+  </data>
+  <data name="NoRightsErrorMessage" xml:space="preserve">
+    <value>You do not have permission to perform the action. Contact your administrator.</value>
+  </data>
+  <data name="SubstitutionReplaceErrorMessage" xml:space="preserve">
+    <value>The user cannot replace himself.</value>
+  </data>
+  <data name="SubstitutionNotificationSubjectText" xml:space="preserve">
+    <value>A replacement was created/modified where you are the replacement {0}</value>
+  </data>
+  <data name="SubstitutionNotificationStartDateText" xml:space="preserve">
+    <value> from {0}</value>
+  </data>
+  <data name="SubstitutionNotificationEndDateText" xml:space="preserve">
+    <value> to {0}</value>
+  </data>
+  <data name="SubstitutionDialogDateInputErrorMessage" xml:space="preserve">
+    <value>The start date must be less than the end date</value>
+  </data>
+  <data name="UserIsSystemErrorMessage" xml:space="preserve">
+    <value>The action is not available to the system user. If you are an administrator, use the Substitutions reference book on the cover of the Administration module.
+</value>
+  </data>
+</root>
