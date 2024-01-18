@@ -17,7 +17,7 @@ namespace DirRX.SubstitutionsManagment.Client
     {
       if (Employees.Current == null)
       {
-        Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.UserIsSystemErrorMessage, MessageType.Warning);
+        Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.UserIsSystemErrorMessage, MessageType.Information);
         return false;
       }
       
@@ -25,7 +25,7 @@ namespace DirRX.SubstitutionsManagment.Client
         PublicFunctions.Module.Remote.IsDepartmentSubstitutionManager(Employees.Current);
       
       if (!hasRights)
-        Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.NoRightsErrorMessage, MessageType.Warning);
+        Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.NoRightsErrorMessage, MessageType.Information);
       
       return hasRights;
     }

@@ -78,7 +78,7 @@ namespace DirRX.SubstitutionsManagment.Server
     public static IQueryable<ISubstitution> GetEmployeeSubstitutions(Sungero.Company.IEmployee employee, bool isDepartmentManager)
     {
       return Substitutions.GetAll()
-        .Where(s => s.IsSystem == false &&
+        .Where(s => s.IsSystem != true &&
                (Users.Equals(s.User, employee) ||
                 (isDepartmentManager &&
                  Sungero.Company.Employees.Is(s.User) &&
