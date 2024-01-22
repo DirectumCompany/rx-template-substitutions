@@ -28,4 +28,4 @@
 </block>
 ```
 ## Дополнительно
-Подробное описание шаблона: [Directum RX. Шаблон разработки "Создание замещений". Описание](http://aura.npo-comp.ru/sungero?type=09584896-81e2-4c83-8f6c-70eb8321e1d0&id=524882)
+Подробное описание шаблона: [Directum RX. Шаблон разработки "Создание замещений". Описание](https://github.com/DirectumCompany/rx-template-substitutions/tree/master/docs)
