@@ -1,4 +1,4 @@
-# rx-template-counterpartiescleaning
+# rx-template-substitutions
 Шаблон разработки "Создание замещений" для Directum RX.
 ## Описание
 Шаблон позволяет сотрудникам без прав прикладных администраторов:
