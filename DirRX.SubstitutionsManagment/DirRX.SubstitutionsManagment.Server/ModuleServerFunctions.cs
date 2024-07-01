@@ -109,6 +109,20 @@ namespace DirRX.SubstitutionsManagment.Server
       var role = Roles.GetAll(r => r.Sid == Constants.Module.RoleGuid.DepartmentSubstitutionManager).FirstOrDefault();
       return user.IncludedIn(role);
     }
-
+    
+    /// <summary>
+    /// Проверить надичие дублей замещений.
+    /// </summary>
+    /// <returns>Результат проверки.</returns>
+    [Public, Remote(IsPure = true)]
+    public static bool CheckDoubleSubstitutions(Structures.Module.ISubstitutionDialogStructure substitutionStruct)
+    {
+      return Substitutions.GetAll(x=> x.IsSystem == true).Any(x=> x.User == substitutionStruct.SubstitutedUser 
+                                                              && x.Substitute == substitutionStruct.Substitute) ||
+        Substitutions.GetAll(x=> x.IsSystem == false).Any(x=> x.User == substitutionStruct.SubstitutedUser 
+                                                          && x.Substitute == substitutionStruct.Substitute
+                                                          && x.StartDate == substitutionStruct.StartDate
+                                                          && x.EndDate == substitutionStruct.EndDate);
+    }
   }
 }

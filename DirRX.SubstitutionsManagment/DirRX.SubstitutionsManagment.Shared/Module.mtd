@@ -148,6 +148,20 @@
   ],
   "PublicFunctions": [
     {
+      "Name": "CheckDoubleSubstitutions",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "substitutionStruct",
+          "ParameterType": "global::DirRX.SubstitutionsManagment.Structures.Module.ISubstitutionDialogStructure",
+          "ParameterTypeFullName": "DirRX.SubstitutionsManagment.Structures.Module.ISubstitutionDialogStructure"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
       "Name": "CreateOrUpdateSubstitution",
       "IsRemote": true,
       "Parameters": [
@@ -304,7 +318,8 @@
     "SubstitutionNotificationStartDateText",
     "SubstitutionNotificationEndDateText",
     "SubstitutionDialogDateInputErrorMessage",
-    "UserIsSystemErrorMessage"
+    "UserIsSystemErrorMessage",
+    "IsDouble"
   ],
   "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
   "ServerNamespace": "DirRX.SubstitutionsManagment.Server",
