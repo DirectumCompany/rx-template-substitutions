@@ -116,13 +116,13 @@ namespace DirRX.SubstitutionsManagment.Server
     /// <returns>Результат проверки.</returns>
     [Public, Remote(IsPure = true)]
     public static bool CheckDoubleSubstitutions(Structures.Module.ISubstitutionDialogStructure substitutionStruct)
-    {
-      return Substitutions.GetAll(x=> x.IsSystem == true).Any(x=> x.User == substitutionStruct.SubstitutedUser 
-                                                              && x.Substitute == substitutionStruct.Substitute) ||
-        Substitutions.GetAll(x=> x.IsSystem == false).Any(x=> x.User == substitutionStruct.SubstitutedUser 
-                                                          && x.Substitute == substitutionStruct.Substitute
-                                                          && x.StartDate == substitutionStruct.StartDate
-                                                          && x.EndDate == substitutionStruct.EndDate);
+    {      
+      return Substitutions.GetAll()
+        .Where(x=> x.Status.Value == Sungero.CoreEntities.DatabookEntry.Status.Active && !Substitutions.Equals(x, substitutionStruct.Substitution))
+        .Where(x=> IUser.Equals(x.User, substitutionStruct.SubstitutedUser) && IUser.Equals(x.Substitute, substitutionStruct.Substitute))
+        .Where(x=> substitutionStruct.StartDate.HasValue ? x.StartDate <= substitutionStruct.StartDate : false)
+        .Where(x=> substitutionStruct.EndDate.HasValue ? x.EndDate >= substitutionStruct.EndDate : false)
+        .Any();
     }
   }
 }

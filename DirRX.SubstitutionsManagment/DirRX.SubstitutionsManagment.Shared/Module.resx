@@ -102,6 +102,6 @@
 </value>
   </data>
   <data name="IsDouble" xml:space="preserve">
-    <value>There is already a similar substitution in the system.</value>
+    <value>Duplicate substitutions found. No new replacement created</value>
   </data>
 </root>
