@@ -101,4 +101,7 @@
     <value>The action is not available to the system user. If you are an administrator, use the Substitutions reference book on the cover of the Administration module.
 </value>
   </data>
+  <data name="IsDouble" xml:space="preserve">
+    <value>Duplicate substitutions found. No new replacement created</value>
+  </data>
 </root>

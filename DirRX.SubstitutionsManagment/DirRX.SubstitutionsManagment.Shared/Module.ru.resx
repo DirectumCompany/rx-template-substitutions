@@ -100,4 +100,7 @@
   <data name="UserIsSystemErrorMessage" xml:space="preserve">
     <value>Выполнение действия недоступно для системного пользователя. Если вы являетесь администратором, используйте справочник Замещения на обложке модуля Администрирования.</value>
   </data>
+  <data name="IsDouble" xml:space="preserve">
+    <value>Найдены дубли замещения. Новое замещение не создано</value>
+  </data>
 </root>

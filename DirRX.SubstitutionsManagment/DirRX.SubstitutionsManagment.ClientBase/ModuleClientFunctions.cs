@@ -42,7 +42,12 @@ namespace DirRX.SubstitutionsManagment.Client
       var substitutionStruct = new Structures.Module.SubstitutionDialogStructure();
       var result = ShowSubstitutionInputDialog(substitutionStruct, isUpdate);
       if (result)
-        Functions.Module.Remote.CreateOrUpdateSubstitution(substitutionStruct, isUpdate);
+      {
+        if (Functions.Module.Remote.CheckDoubleSubstitutions(substitutionStruct))
+          Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.IsDouble, MessageType.Warning);
+        else
+          Functions.Module.Remote.CreateOrUpdateSubstitution(substitutionStruct, isUpdate);
+      }
     }
     
     /// <summary>
@@ -56,9 +61,13 @@ namespace DirRX.SubstitutionsManagment.Client
       var isUpdate = true;
       var substitutionStruct = new Structures.Module.SubstitutionDialogStructure();
       var result = ShowSubstitutionInputDialog(substitutionStruct, isUpdate);
-      var substitution = substitutionStruct.Substitution;
       if (result)
-        Functions.Module.Remote.CreateOrUpdateSubstitution(substitutionStruct, isUpdate);
+      {
+        if (Functions.Module.Remote.CheckDoubleSubstitutions(substitutionStruct))
+          Dialogs.ShowMessage(DirRX.SubstitutionsManagment.Resources.IsDouble, MessageType.Warning);
+        else
+          Functions.Module.Remote.CreateOrUpdateSubstitution(substitutionStruct, isUpdate);
+      }
     }
     
     /// <summary>

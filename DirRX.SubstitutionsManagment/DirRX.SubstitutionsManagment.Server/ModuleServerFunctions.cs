@@ -109,6 +109,20 @@ namespace DirRX.SubstitutionsManagment.Server
       var role = Roles.GetAll(r => r.Sid == Constants.Module.RoleGuid.DepartmentSubstitutionManager).FirstOrDefault();
       return user.IncludedIn(role);
     }
-
+    
+    /// <summary>
+    /// Проверить надичие дублей замещений.
+    /// </summary>
+    /// <returns>Результат проверки.</returns>
+    [Public, Remote(IsPure = true)]
+    public static bool CheckDoubleSubstitutions(Structures.Module.ISubstitutionDialogStructure substitutionStruct)
+    {      
+      return Substitutions.GetAll()
+        .Where(x=> x.Status.Value == Sungero.CoreEntities.DatabookEntry.Status.Active && !Substitutions.Equals(x, substitutionStruct.Substitution))
+        .Where(x=> IUser.Equals(x.User, substitutionStruct.SubstitutedUser) && IUser.Equals(x.Substitute, substitutionStruct.Substitute))
+        .Where(x=> substitutionStruct.StartDate.HasValue ? x.StartDate <= substitutionStruct.StartDate : false)
+        .Where(x=> substitutionStruct.EndDate.HasValue ? x.EndDate >= substitutionStruct.EndDate : false)
+        .Any();
+    }
   }
 }
