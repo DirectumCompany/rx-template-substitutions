@@ -103,4 +103,17 @@
   <data name="IsDouble" xml:space="preserve">
     <value>Найдены дубли замещения. Новое замещение не создано</value>
   </data>
+  <data name="FunctionInfo_CreateSubstitution" xml:space="preserve">
+    <value>Создание замещения</value>
+  </data>
+  <data name="FunctionDescription_CreateSubstitution" xml:space="preserve">
+    <value>Создание замещений на себя или сотрудников своего подразделения.</value>
+  </data>
+  <data name="FunctionInfo_UpdateSubstitution" xml:space="preserve">
+    <value>Изменение замещения</value>
+  </data>
+  <data name="FunctionDescription_UpdateSubstitution" xml:space="preserve">
+    <value>Изменение замещений на себя или сотрудников своего подразделения.
+</value>
+  </data>
 </root>

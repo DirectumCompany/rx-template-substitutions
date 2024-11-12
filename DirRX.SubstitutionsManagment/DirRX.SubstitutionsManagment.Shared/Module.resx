@@ -104,4 +104,16 @@
   <data name="IsDouble" xml:space="preserve">
     <value>Duplicate substitutions found. No new replacement created</value>
   </data>
+  <data name="FunctionInfo_CreateSubstitution" xml:space="preserve">
+    <value>Create substitution</value>
+  </data>
+  <data name="FunctionDescription_CreateSubstitution" xml:space="preserve">
+    <value>Creating substitutions for yourself or employees of your department.</value>
+  </data>
+  <data name="FunctionInfo_UpdateSubstitution" xml:space="preserve">
+    <value>Update substitution</value>
+  </data>
+  <data name="FunctionDescription_UpdateSubstitution" xml:space="preserve">
+    <value>Updating substitutions for yourself or employees of your department.</value>
+  </data>
 </root>

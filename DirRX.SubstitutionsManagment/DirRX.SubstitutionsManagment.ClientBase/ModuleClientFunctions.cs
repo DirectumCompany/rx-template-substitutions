@@ -33,8 +33,10 @@ namespace DirRX.SubstitutionsManagment.Client
     /// <summary>
     /// Создать замещение.
     /// </summary>
+    [LocalizeFunction("FunctionInfo_CreateSubstitution", "FunctionDescription_CreateSubstitution")]
     public virtual void CreateSubstitution()
     {
+      
       if (!CheckUserRights())
         return;
       
@@ -53,6 +55,7 @@ namespace DirRX.SubstitutionsManagment.Client
     /// <summary>
     /// Изменить замещение.
     /// </summary>
+    [LocalizeFunction("FunctionInfo_UpdateSubstitution", "FunctionDescription_UpdateSubstitution")]
     public virtual void UpdateSubstitution()
     {
       if (!CheckUserRights())
