@@ -124,7 +124,8 @@
   "IsolatedAssemblyName": "DirRX.SubstitutionsManagment.Isolated",
   "IsolatedNamespace": "DirRX.SubstitutionsManagment.Isolated",
   "Overridden": [
-    "Importance"
+    "Importance",
+    "IsVisible"
   ],
   "PublicConstants": [
     {
@@ -319,7 +320,11 @@
     "SubstitutionNotificationEndDateText",
     "SubstitutionDialogDateInputErrorMessage",
     "UserIsSystemErrorMessage",
-    "IsDouble"
+    "IsDouble",
+    "FunctionInfo_CreateSubstitution",
+    "FunctionDescription_CreateSubstitution",
+    "FunctionInfo_UpdateSubstitution",
+    "FunctionDescription_UpdateSubstitution"
   ],
   "ServerAssemblyName": "DirRX.SubstitutionsManagment.Server",
   "ServerNamespace": "DirRX.SubstitutionsManagment.Server",
