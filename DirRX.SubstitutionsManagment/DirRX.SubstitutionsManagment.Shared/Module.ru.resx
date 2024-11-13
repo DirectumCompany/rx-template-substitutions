@@ -113,7 +113,6 @@
     <value>Изменение замещения</value>
   </data>
   <data name="FunctionDescription_UpdateSubstitution" xml:space="preserve">
-    <value>Изменение замещений на себя или сотрудников своего подразделения.
-</value>
+    <value>Изменение замещений на себя или сотрудников своего подразделения.</value>
   </data>
 </root>
