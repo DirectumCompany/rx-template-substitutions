@@ -13,6 +13,26 @@ namespace DirRX.SubstitutionsManagment.Server
     public override void Initializing(Sungero.Domain.ModuleInitializingEventArgs e)
     {
       CreateRoles();
+      CreateReportsTables();
+      GrantRights();
+    }
+    
+    public static void GrantRights()
+    {
+      var allUsers = Roles.AllUsers;
+      
+      if (allUsers != null)
+      {
+        Reports.AccessRights.Grant(Reports.GetListSubstitutionsReport().Info, allUsers, DefaultReportAccessRightsTypes.Execute);
+      }
+    }
+    
+    public static void CreateReportsTables()
+    {
+      var listSubstitutionsReportTableName = SubstitutionsManagment.Constants.ListSubstitutionsReport.SourceTableName;
+      Sungero.Docflow.PublicFunctions.Module.DropReportTempTables(new[] { listSubstitutionsReportTableName });
+
+      Sungero.Docflow.PublicFunctions.Module.ExecuteSQLCommandFormat(Queries.ListSubstitutionsReport.CreateListSubstitutions, new[] { listSubstitutionsReportTableName });
     }
     
     public static void CreateRoles()

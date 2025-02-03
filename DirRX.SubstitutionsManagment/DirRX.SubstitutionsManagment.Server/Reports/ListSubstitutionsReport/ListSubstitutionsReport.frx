@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Core.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;System.Xml.dll&#13;&#10;Sungero.Domain.Shared&#13;&#10;Sungero.CoreEntities.Shared&#13;&#10;Sungero.Reporting.Shared&#13;&#10;CommonLibrary&#13;&#10;Sungero.Localization&#13;&#10;Sungero.Declension&#13;&#10;Sungero.CoreEntities.Server&#13;&#10;Sungero.Domain&#13;&#10;Sungero.Domain.Interfaces&#13;&#10;Sungero.Company.Shared&#13;&#10;Sungero.Company.Server&#13;&#10;DirRX.SubstitutionsManagment.Shared&#13;&#10;DirRX.SubstitutionsManagment.Server" ReportInfo.CreatorVersion="2020.2.12.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+using Sungero.Company;
+using Sungero.Domain.Shared;
+using Sungero.CoreEntities;
+using Sungero.Core;
+using Resources = DirRX.SubstitutionsManagment.Reports.Resources;
+
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+  }
+}
+  </ScriptText>
+  <Dictionary>
+    <SungeroSqlDataConnection Name="Sungero_Connection" Restrictions="DontModify, DontEdit, DontDelete, HideAllProperties" ConnectionStringExpression="[SungeroConnectionString]">
+      <TableDataSource Name="Table" Alias="ListSubstitutions" DataType="System.Int32" Enabled="true" CanEdit="true" SelectCommand="${SelectDataFromTable}">
+        <Column Name="Id" DataType="System.Int64" PropName="Column"/>
+        <Column Name="EndDate" DataType="System.String" PropName="Column"/>
+        <Column Name="Substitute" DataType="System.String" PropName="Column"/>
+        <Column Name="Substitutable" DataType="System.String" PropName="Column"/>
+        <Column Name="Description" DataType="System.String" PropName="Column"/>
+        <Column Name="IsSystemSubstitution" DataType="System.String" PropName="Column"/>
+        <Column Name="IsNeedDelegateStrictAccess" DataType="System.String" PropName="Column"/>
+        <Column Name="StartDate" DataType="System.String"/>
+        <CommandParameter Name="ReportSessionId" DataType="16" IsDbType="true" Expression="[ReportSessionId]"/>
+      </TableDataSource>
+    </SungeroSqlDataConnection>
+    <SungeroParameter Name="SungeroConnectionString" Restrictions="DontModify, DontEdit, DontDelete, HideAllProperties, DontShow" Id="12754f8c-b848-4a0f-9362-8d2b5dcc56a8" IsRequired="false" IsCollection="false" InternalDataType="System.String" IsSimpleDataType="false" EntityTypeId="00000000-0000-0000-0000-000000000000"/>
+    <SungeroParameter Name="Substitute" Id="0afcdbf6-aaba-4113-a241-698aaeb544db" IsRequired="false" IsCollection="false" InternalDataType="Sungero.Company.IEmployee, Sungero.Domain.Interfaces" IsSimpleDataType="false" EntityTypeId="b7905516-2be5-4931-961c-cb38d5677565"/>
+    <SungeroParameter Name="Substitutable" Id="c7d9d291-491b-4346-b355-458b79fdd639" IsRequired="false" IsCollection="false" InternalDataType="Sungero.Company.IEmployee, Sungero.Domain.Interfaces" IsSimpleDataType="false" EntityTypeId="b7905516-2be5-4931-961c-cb38d5677565"/>
+    <SungeroParameter Name="ReportSessionId" Id="2404d684-6309-4954-b363-36c827aa4494" IsRequired="false" IsCollection="false" InternalDataType="System.String" IsSimpleDataType="false" EntityTypeId="00000000-0000-0000-0000-000000000000"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="28.35">
+      <TextObject Name="Text17" Width="718.2" Height="28.35" Text="Список замещений" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="32.35" Width="718.2" Height="37.8">
+      <TextObject Name="Text2" Width="56.7" Height="28.35" Border.Lines="All" GrowToBottom="true" Text="[DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.Id]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="56.7" Width="94.5" Height="28.35" Border.Lines="All" GrowToBottom="true" Text="[DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.StartDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text6" Left="151.2" Width="94.5" Height="28.35" Border.Lines="All" GrowToBottom="true" Text="[DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.EndDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text8" Left="245.7" Width="94.5" Height="28.35" Border.Lines="All" GrowToBottom="true" Text="[DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.Substitute]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="340.2" Width="94.5" Height="28.35" Border.Lines="All" GrowToBottom="true" Text="[DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.Substitutable]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text12" Left="623.7" Width="94.5" Height="28.35" Border.Lines="All" GrowToBottom="true" Text="[DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.Description]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text14" Left="434.7" Width="94.5" Height="28.35" Border.Lines="All" GrowToBottom="true" Text="[DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.IsSystemSubstitution]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text16" Left="529.2" Width="94.5" Height="28.35" Border.Lines="All" GrowToBottom="true" Text="[DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.IsNeedDelegateStrictAccess]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="28.35" CanGrow="true" DataSource="Table" KeepTogether="true" KeepDetail="true">
+      <TextObject Name="Text1" Width="56.7" Height="28.35" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" CanBreak="false" Text="[ListSubstitutions.Id]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="151.2" Width="94.5" Height="28.35" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" CanBreak="false" Text="[ListSubstitutions.EndDate]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="245.7" Width="94.5" Height="28.35" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" CanBreak="false" Text="[ListSubstitutions.Substitute]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text9" Left="340.2" Width="94.5" Height="28.35" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" CanBreak="false" Text="[ListSubstitutions.Substitutable]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text11" Left="434.7" Width="94.5" Height="28.35" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" CanBreak="false" Text="[ListSubstitutions.IsSystemSubstitution]" Format="Boolean" Format.TrueText="+" Format.FalseText="" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text13" Left="529.2" Width="94.5" Height="28.35" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" CanBreak="false" Text="[ListSubstitutions.IsNeedDelegateStrictAccess]" Format="Boolean" Format.TrueText="+" Format.FalseText="" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text15" Left="623.7" Width="94.5" Height="28.35" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" CanBreak="false" Text="[ListSubstitutions.Description]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="56.7" Width="94.5" Height="28.35" Border.Lines="All" CanGrow="true" CanShrink="true" GrowToBottom="true" CanBreak="false" Text="[ListSubstitutions.StartDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt">
+        <Formats>
+          <DateFormat/>
+          <GeneralFormat/>
+        </Formats>
+      </TextObject>
+      <Sort>
+        <Sort Expression="[ListSubstitutions.Id]"/>
+      </Sort>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -88,4 +88,10 @@
   <data name="AsyncHandler_Description_ae3d3145cac3404597d68abb48530c13" xml:space="preserve">
     <value>Creating/modifying a substitution.</value>
   </data>
+  <data name="CoverAction_ListSubstitution" xml:space="preserve">
+    <value>List substitution</value>
+  </data>
+  <data name="CoverDescription_ListSubstitution" xml:space="preserve">
+    <value>Report for viewing the list of substitutions.</value>
+  </data>
 </root>

@@ -58,37 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Description" xml:space="preserve">
+    <value>Report for viewing the list of substitutions.</value>
+  </data>
   <data name="DisplayName" xml:space="preserve">
-    <value>Управление замещениями</value>
-  </data>
-  <data name="CoverTitle" xml:space="preserve">
-    <value>Управление замещениями</value>
-  </data>
-  <data name="CoverDescription" xml:space="preserve">
-    <value>Модуль предназначен для работы сотрудников и ответственных по подразделениям с замещениями.</value>
-  </data>
-  <data name="CoverGroup_Substitutions" xml:space="preserve">
-    <value>Замещения</value>
-  </data>
-  <data name="CoverAction_CreateSubstitution" xml:space="preserve">
-    <value>Создать замещение</value>
-  </data>
-  <data name="CoverAction_UpdateSubstitution" xml:space="preserve">
-    <value>Изменить замещение</value>
-  </data>
-  <data name="CoverDescription_CreateSubstitution" xml:space="preserve">
-    <value>Создание замещений на себя или сотрудников своего подразделения.</value>
-  </data>
-  <data name="CoverDescription_UpdateSubstitution" xml:space="preserve">
-    <value>Изменение замещений на себя или сотрудников своего подразделения.</value>
-  </data>
-  <data name="AsyncHandler_Description_ae3d3145cac3404597d68abb48530c13" xml:space="preserve">
-    <value>Создание/изменение замещения.</value>
-  </data>
-  <data name="CoverAction_ListSubstitution" xml:space="preserve">
-    <value>Список замещений</value>
-  </data>
-  <data name="CoverDescription_ListSubstitution" xml:space="preserve">
-    <value>Отчет для ознакомления со списком замещений.</value>
+    <value>List substitutions</value>
   </data>
 </root>

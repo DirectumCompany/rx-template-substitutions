@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<queries>
+  <query key="CreateListSubstitutions">
+    <mssql><![CDATA[CREATE TABLE {0}
+(
+    Id BIGINT,
+    StartDate NVARCHAR(MAX),  
+    EndDate NVARCHAR(MAX),
+    Substitute NVARCHAR(MAX),
+    Substitutable NVARCHAR(MAX),
+    Description NVARCHAR(MAX),
+    IsSystemSubstitution NVARCHAR(MAX),
+    IsNeedDelegateStrictAccess NVARCHAR(MAX),
+    ReportSessionId NVARCHAR(MAX) NOT NULL
+);]]></mssql>
+    <postgres><![CDATA[create table {0}
+(
+Id bigint,
+StartDate citext,
+EndDate citext,
+Substitute citext,
+Substitutable citext,
+Description citext,
+IsSystemSubstitution citext,
+IsNeedDelegateStrictAccess citext,
+ReportSessionId citext NOT NULL
+)
+]]></postgres>
+  </query>
+  <query key="SelectDataFromTable">
+    <default><![CDATA[select *
+from Sungero_Reports_ListSubstitutionsReport temp
+where ReportSessionId = @ReportSessionId]]></default>
+  </query>
+</queries>

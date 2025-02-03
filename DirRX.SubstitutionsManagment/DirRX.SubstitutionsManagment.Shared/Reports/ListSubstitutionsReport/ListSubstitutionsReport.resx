@@ -58,37 +58,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DisplayName" xml:space="preserve">
-    <value>Управление замещениями</value>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
   </data>
-  <data name="CoverTitle" xml:space="preserve">
-    <value>Управление замещениями</value>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start date</value>
   </data>
-  <data name="CoverDescription" xml:space="preserve">
-    <value>Модуль предназначен для работы сотрудников и ответственных по подразделениям с замещениями.</value>
+  <data name="EndDate" xml:space="preserve">
+    <value>End date</value>
   </data>
-  <data name="CoverGroup_Substitutions" xml:space="preserve">
-    <value>Замещения</value>
+  <data name="Substitute" xml:space="preserve">
+    <value>Substitute</value>
   </data>
-  <data name="CoverAction_CreateSubstitution" xml:space="preserve">
-    <value>Создать замещение</value>
+  <data name="Substitutable" xml:space="preserve">
+    <value>Substitutable</value>
   </data>
-  <data name="CoverAction_UpdateSubstitution" xml:space="preserve">
-    <value>Изменить замещение</value>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="CoverDescription_CreateSubstitution" xml:space="preserve">
-    <value>Создание замещений на себя или сотрудников своего подразделения.</value>
+  <data name="IsSystemSubstitution" xml:space="preserve">
+    <value>Is system substitution</value>
   </data>
-  <data name="CoverDescription_UpdateSubstitution" xml:space="preserve">
-    <value>Изменение замещений на себя или сотрудников своего подразделения.</value>
+  <data name="IsNeedDelegateStrictAccess" xml:space="preserve">
+    <value>Is need delegate strict access</value>
   </data>
-  <data name="AsyncHandler_Description_ae3d3145cac3404597d68abb48530c13" xml:space="preserve">
-    <value>Создание/изменение замещения.</value>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
-  <data name="CoverAction_ListSubstitution" xml:space="preserve">
-    <value>Список замещений</value>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
-  <data name="CoverDescription_ListSubstitution" xml:space="preserve">
-    <value>Отчет для ознакомления со списком замещений.</value>
+  <data name="BeingReplacedReplacement" xml:space="preserve">
+    <value>Specify the person being replaced or the replacement</value>
   </data>
 </root>

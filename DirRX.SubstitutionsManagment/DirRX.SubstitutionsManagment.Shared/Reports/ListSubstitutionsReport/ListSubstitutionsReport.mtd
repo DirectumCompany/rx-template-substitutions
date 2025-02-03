@@ -1,0 +1,66 @@
+{
+  "$type": "Sungero.Metadata.ReportMetadata, Sungero.Reporting.Shared",
+  "NameGuid": "6313da46-a9b0-4e68-8951-8ac56be3e77f",
+  "Name": "ListSubstitutionsReport",
+  "AssociatedGuid": "e282aaca-e636-4ba9-b955-b573e3cca133",
+  "BaseGuid": "cef9a810-3f30-4eca-9fe3-30992af0b818",
+  "DataSources": [],
+  "DefaultExportFormat": "Excel",
+  "ExportFormats": [
+    "Excel"
+  ],
+  "HandledEvents": [
+    "BeforeExecuteClient",
+    "BeforeExecuteServer",
+    "AfterExecuteServer"
+  ],
+  "IconResourcesKeys": [],
+  "IntegrationServiceName": "SubstitutionsManagmentListSubstitutionsReport",
+  "Overridden": [
+    "HandledEvents",
+    "Parameters",
+    "ExportFormats",
+    "DefaultExportFormat",
+    "DisplayName",
+    "Description"
+  ],
+  "Parameters": [
+    {
+      "NameGuid": "0afcdbf6-aaba-4113-a241-698aaeb544db",
+      "Name": "Substitute",
+      "EntityType": "b7905516-2be5-4931-961c-cb38d5677565",
+      "InternalDataTypeName": "Sungero.Company.IEmployee, Sungero.Domain.Interfaces"
+    },
+    {
+      "NameGuid": "c7d9d291-491b-4346-b355-458b79fdd639",
+      "Name": "Substitutable",
+      "EntityType": "b7905516-2be5-4931-961c-cb38d5677565",
+      "InternalDataTypeName": "Sungero.Company.IEmployee, Sungero.Domain.Interfaces"
+    },
+    {
+      "NameGuid": "2404d684-6309-4954-b363-36c827aa4494",
+      "Name": "ReportSessionId",
+      "InternalDataTypeName": "System.String"
+    }
+  ],
+  "PublicStructures": [],
+  "ResourcesKeys": [
+    "Id",
+    "StartDate",
+    "EndDate",
+    "Substitute",
+    "Substitutable",
+    "Description",
+    "IsSystemSubstitution",
+    "IsNeedDelegateStrictAccess",
+    "Yes",
+    "No",
+    "BeingReplacedReplacement"
+  ],
+  "Versions": [
+    {
+      "Type": "ReportMetadata",
+      "Number": 1
+    }
+  ]
+}

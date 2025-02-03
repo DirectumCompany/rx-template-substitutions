@@ -72,6 +72,15 @@
         "Name": "CreateSubstitution",
         "FunctionName": "CreateSubstitution",
         "GroupId": "12e09f51-e387-4d17-a038-0d0db4e38ff9"
+      },
+      {
+        "$type": "Sungero.Metadata.CoverReportActionMetadata, Sungero.Reporting.Shared",
+        "NameGuid": "2470eff6-d4fd-4fb2-b27c-d0e0b1515e2d",
+        "Name": "ListSubstitution",
+        "CoverActionPresenterTypeName": "Sungero.Presentation.CoverReportActionPresenter, Sungero.Presentation",
+        "GroupId": "12e09f51-e387-4d17-a038-0d0db4e38ff9",
+        "PreviousItemGuid": "05f9f328-face-472b-be63-7d24e2f9d2f7",
+        "ReportId": "6313da46-a9b0-4e68-8951-8ac56be3e77f"
       }
     ],
     "Background": null,
@@ -111,6 +120,12 @@
       "Id": "92491aa6-c4df-4f46-a807-ebdd337bda74",
       "MaxVersion": "",
       "MinVersion": "1.1.0.0"
+    }
+  ],
+  "ExplorerTreeOrder": [
+    {
+      "ItemId": "6313da46-a9b0-4e68-8951-8ac56be3e77f",
+      "PreviousItemId": "40cf9f00-6df8-48d5-9445-db749e45fbed"
     }
   ],
   "HandledEvents": [

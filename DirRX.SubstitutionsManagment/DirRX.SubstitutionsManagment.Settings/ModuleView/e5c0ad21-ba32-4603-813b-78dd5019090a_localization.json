@@ -1,0 +1,46 @@
+{
+  "CoverHeaderSettings_Description_5f8d37db5a4540f18539d4409e7130ad": {
+    "en-US": "The module is intended for the work of employees and department officials with substitutions.",
+    "ru-RU": "Модуль предназначен для работы сотрудников и ответственных по подразделениям с замещениями."
+  },
+  "CoverHeaderSettings_Title_5f8d37db5a4540f18539d4409e7130ad": {
+    "en-US": "Substitutions managment",
+    "ru-RU": "Управление замещениями"
+  },
+  "CreateSubstitution_Description_1347a93594cf41ada064b8f30e057184": {
+    "en-US": "Creating substitutions for yourself or employees of your department.",
+    "ru-RU": "Создание замещений на себя или сотрудников своего подразделения."
+  },
+  "CreateSubstitution_Title_1347a93594cf41ada064b8f30e057184": {
+    "en-US": "Create substitution",
+    "ru-RU": "Создать замещение"
+  },
+  "Description": {},
+  "ListSubstitution_Description_2470eff6d4fd4fb2b27cd0e0b1515e2d": {
+    "en-US": "Report for viewing the list of substitutions.",
+    "ru-RU": "Отчет для ознакомления со списком замещений."
+  },
+  "ListSubstitution_Title_2470eff6d4fd4fb2b27cd0e0b1515e2d": {
+    "en-US": "List substitution",
+    "ru-RU": "Список замещений"
+  },
+  "Name": {
+    "en-US": "Substitutions managment",
+    "ru-RU": "Управление замещениями"
+  },
+  "Substitutions_Title_12e09f51e3874d17a0380d0db4e38ff9": {
+    "en-US": "Substitutions",
+    "ru-RU": "Замещения"
+  },
+  "Tab_Title_3dff3cf7b64b40bea3ff8436a53da490": {
+    "en-US": "Tab"
+  },
+  "UpdateSubstitution_Description_05f9f328face472bbe637d24e2f9d2f7": {
+    "en-US": "Updating substitutions for yourself or employees of your department.",
+    "ru-RU": "Изменение замещений на себя или сотрудников своего подразделения."
+  },
+  "UpdateSubstitution_Title_05f9f328face472bbe637d24e2f9d2f7": {
+    "en-US": "Update substitution",
+    "ru-RU": "Изменить замещение"
+  }
+}
