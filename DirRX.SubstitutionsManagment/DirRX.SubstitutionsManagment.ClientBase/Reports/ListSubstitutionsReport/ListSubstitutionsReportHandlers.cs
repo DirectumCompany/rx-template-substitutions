@@ -39,6 +39,8 @@ namespace DirRX.SubstitutionsManagment
         ListSubstitutionsReport.Substitute = substituteDialog?.Value;
         ListSubstitutionsReport.Substitutable = substitutableDialog?.Value;
       }
+      else
+        e.Cancel = true;
     }
   }
 }

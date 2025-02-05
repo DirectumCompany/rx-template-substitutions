@@ -44,7 +44,7 @@ namespace DirRX.SubstitutionsManagment
           DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.Yes :
           DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.No;
         
-        tableLine.IsNeedDelegateStrictAccess = substitution.DelegateStrictRights == true ?
+        tableLine.IsNeedDelegateStrictAccess = substitution.DelegateStrictRights ?
           DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.Yes :
           DirRX.SubstitutionsManagment.Reports.Resources.ListSubstitutionsReport.No;
         tableLine.ReportSessionId = reportSessionId;
