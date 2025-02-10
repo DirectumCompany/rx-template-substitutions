@@ -89,6 +89,6 @@
     <value>Нет</value>
   </data>
   <data name="BeingReplacedReplacement" xml:space="preserve">
-    <value>Укажите замещаемого либо замещающего</value>
+    <value>Укажите замещающего ИЛИ замещаемого</value>
   </data>
 </root>
