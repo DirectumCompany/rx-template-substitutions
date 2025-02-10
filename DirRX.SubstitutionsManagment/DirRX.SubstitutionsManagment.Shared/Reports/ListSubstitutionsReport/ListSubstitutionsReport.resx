@@ -89,6 +89,6 @@
     <value>No</value>
   </data>
   <data name="BeingReplacedReplacement" xml:space="preserve">
-    <value>Specify the person being replaced or the replacement</value>
+    <value>Specify the replacement or the one being replaced</value>
   </data>
 </root>
