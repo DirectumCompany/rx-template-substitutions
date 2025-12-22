@@ -1,4 +1,4 @@
-# rx-template-substitutions
+# Создание замещений
 Шаблон разработки "Создание замещений" для Directum RX.
 ## Описание
 Шаблон позволяет сотрудникам без прав прикладных администраторов:
@@ -29,13 +29,17 @@
 ## Порядок установки
 Для работы требуется установленный Directum RX версии 4.8 и выше.
 1. Склонировать репозиторий [https://github.com/DirectumCompany/rx-template-substitutions](https://github.com/DirectumCompany/rx-template-substitutions/) в папку.
-2. Указать в _ConfigSettings.xml DDS:
+2. Указать в config.yml в разделе DevelopmentStudio:
 ```xml
-<block name="REPOSITORIES">
-  <repository folderName="Base" solutionType="Base" url="" /> 
-  <repository folderName="<Папка из п.1>" solutionType="Work" 
-     url="https://github.com/DirectumCompany/rx-template-substitutions.git" />
-</block>
+   GIT_ROOT_DIRECTORY: '<Папка из п.1>'
+   REPOSITORIES:
+      repository:
+      -   '@folderName': 'work'
+          '@solutionType': 'Work'
+          '@url': https://github.com/DirectumCompany/rx-template-substitutions.git'
+      -   '@folderName': 'base'
+          '@solutionType': 'Base'
+          '@url': ''
 ```
 ## Дополнительно
 Подробное описание шаблона: [Directum RX. Шаблон разработки "Создание замещений". Описание](https://github.com/DirectumCompany/rx-template-substitutions/tree/master/docs)
